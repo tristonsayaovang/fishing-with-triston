@@ -1,13 +1,13 @@
 vendor/
 
 # Ignore configuration files that may contain sensitive information.
-sites/*/settings*.php
-sites/*/services*.yml
+web/sites/*/settings*.php
+web/sites/*/services*.yml
 
 # Ignore paths that contain user-generated content.
-sites/*/files
-sites/*/private
+web/sites/*/files
+web/sites/*/private
 
 # Ignore multi-site test environment.
-sites/simpletest
+web/sites/simpletest
 

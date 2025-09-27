@@ -2,5 +2,8 @@ global-styling:
   css:
     theme:
       css/style.css: {}
+      css/vars.css: {}
+      css/header.css: {}
+      css/main.css: {}
   js:
     js/script.js: {}

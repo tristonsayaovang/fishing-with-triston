@@ -2,7 +2,7 @@ name: 'Fishing with Triston'
 type: theme
 description: 'Fishing blog'
 core_version_requirement: ^11
-base theme: olivero
+base theme: false
 libraries:
   - fishing_with_triston/global-styling
 regions:

@@ -13,13 +13,13 @@
  */
 #}
 
-<div class="header-wrapper">
-
-	<div class="logo">
-		<a href="{{ url('<front>') }}"><img src="/themes/custom/fishing_with_triston/images/fishing-with-triston-logo.png" alt="Fish Icon"></a>
+<header class="site-header">
+	<div class="header-wrapper region">
+		<div class="logo">
+			<a href="{{ url('<front>') }}"><img src="/themes/custom/fishing_with_triston/images/fishing-with-triston-logo.png" alt="Fishing with Triston Logo"></a>
+		</div>
+		<div class="main-navigation">
+			{{content}}
+		</div>
 	</div>
-
-	<div class="main-navigation">
-		{{content}}
-	</div>
-</div>
+</header>

@@ -5,5 +5,6 @@ global-styling:
       css/vars.css: {}
       css/header.css: {}
       css/main.css: {}
+      css/region.css: {}
   js:
     js/script.js: {}

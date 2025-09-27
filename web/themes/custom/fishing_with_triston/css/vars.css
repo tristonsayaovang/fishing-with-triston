@@ -4,3 +4,9 @@
     --color-theme-black: #1B2021;
     --color-theme-anchor: #117E9C;
 }
+
+:root {
+    --content-width-wide: 1450px;
+    --content-width-medium: 1200px;
+    --content-width-small: 950px;
+}

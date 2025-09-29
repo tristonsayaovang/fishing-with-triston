@@ -3,8 +3,12 @@ global-styling:
     theme:
       css/style.css: {}
       css/vars.css: {}
+      css/fonts.css: {}
+      css/margins-and-padding.css: {}
       css/header.css: {}
       css/main.css: {}
       css/region.css: {}
+      css/hero.css: {}
+      css/location.css: {}
   js:
     js/script.js: {}

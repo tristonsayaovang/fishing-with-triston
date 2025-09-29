@@ -1,0 +1,14 @@
+name: Media Library Media Modify
+description: 'Store context specific media modifications using the media library.'
+type: module
+package: User interface
+core_version_requirement: ^10.3 || ^11
+dependencies:
+  - drupal:media_library
+test_dependencies:
+  - inline_entity_form:inline_entity_form
+
+# Information added by Drupal.org packaging script on 2024-09-10
+version: '2.0.0-beta1'
+project: 'media_library_media_modify'
+datestamp: 1725960753

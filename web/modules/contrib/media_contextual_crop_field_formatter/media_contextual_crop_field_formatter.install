@@ -1,0 +1,53 @@
+<?php
+
+/**
+ * @file
+ * Defines the installation hooks for the module.
+ */
+
+/**
+ * Replace legacy field "media_contextual_crop_image" formater by core "image".
+ */
+function media_contextual_crop_field_formatter_update_10103(&$sandbox) {
+
+  $config_storage = \Drupal::service('config.storage');
+  $config_factory = \Drupal::service('config.factory');
+  $entity_type_manager = \Drupal::service('entity_type.manager');
+  $configNames = $config_storage->listAll('core.entity_view_display');
+  $conf_changes = FALSE;
+  $one_change = FALSE;
+
+  foreach ($configNames as $config_name) {
+    $conf_changes = FALSE;
+    $conf = $config_factory->getEditable($config_name);
+
+    $content = $conf->get('content');
+    foreach ($content as $field_name => $field_data) {
+      // If one field use old formater change it.
+      if (isset($field_data['type']) && $field_data['type'] == 'media_contextual_crop_image') {
+        $content[$field_name]['type'] = 'image';
+        $conf->set('content', $content);
+        $conf_changes = TRUE;
+        $one_change = TRUE;
+      }
+    }
+
+    // If there is a change in configuration, update it.
+    if ($conf_changes === TRUE) {
+      // Save config.
+      $conf->save();
+
+      // Update entity data;.
+      $entity_name = str_replace('core.entity_view_display.', '', $config_name);
+      $storage = $entity_type_manager->getStorage('entity_view_display');
+      $view_display = $storage->load($entity_name);
+      $view_display->save();
+    }
+  }
+
+  // If there is one configuration change, flush caches.
+  if ($one_change === TRUE) {
+    drupal_flush_all_caches();
+  }
+
+}

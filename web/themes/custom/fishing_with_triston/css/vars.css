@@ -3,10 +3,24 @@
     --color-theme-green: #6a7c32;
     --color-theme-black: #1B2021;
     --color-theme-anchor: #117E9C;
+    --color-theme-white: #ffffff;
 }
 
 :root {
     --content-width-wide: 1450px;
     --content-width-medium: 1200px;
     --content-width-small: 950px;
+}
+
+:root {
+    --font-family-main: 'Lexend', sans-serif;
+}
+
+:root {
+    --margin-standard: 80px;
+    --margin-short: 40px;
+    --margin-tiny: 20px;
+    --padding-standard: 80px;
+    --padding-short: 40px;
+    --padding-tiny: 20px;
 }

@@ -1,0 +1,24 @@
+{
+    "name": "drupal/media_contextual_crop",
+    "type": "drupal-module",
+    "description": "Media Contextual Cropping API",
+    "keywords": ["Drupal"],
+    "require": {
+        "drush/drush": ">11",
+        "drupal/crop": "^2.3",
+        "composer/installers":  "^1.9 || ^2.0",
+        "cweagans/composer-patches": "^1.7 || ^2.0",
+        "drupal/core": "^10 || ^11"
+    },
+    "extra": {
+        "enable-patching": true,
+        "patches": {
+            "drupal/crop": {
+                "provide_contextual_capability_to_crops": "https://www.drupal.org/files/issues/2024-01-21/2617818-32-provide_contextual_capability_to_crops.patch"
+            },
+            "drupal/core": {
+                "Refactor ImageStyleDownloadController": "https://www.drupal.org/files/issues/2025-07-02/refactor-ImageStyleDownloadController-so-derivatives-can-be-generated-by-contrib-modules-2685905-50.patch"
+            }
+        }
+    }
+}

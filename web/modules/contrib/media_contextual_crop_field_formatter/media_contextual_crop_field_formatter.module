@@ -1,0 +1,210 @@
+<?php
+
+/**
+ * @file
+ * Contains media_contextual_crop_field_formatter implemented hooks.
+ */
+
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Entity\FieldableEntityInterface;
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\crop\Entity\Crop;
+use Drupal\media\Entity\Media;
+
+/**
+ * Implements hook_help().
+ */
+function media_contextual_crop_field_formatter_help($route_name, RouteMatchInterface $route_match) {
+  $advanced_help = \Drupal::moduleHandler()->moduleExists('advanced_help');
+  switch ($route_name) {
+    // Main module help for the media_contextual_crop_field_formatter module.
+    case 'help.page.media_contextual_crop_field_formatter':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('This module provides a field formatter for image field to give the ability to apply a contextual crop to referenced media in entity reference fields') . '</p>';
+      $output .= '';
+      if ($advanced_help) {
+        $output .= '<p>' . t('For more information, please see <a href="/admin/help/ah/media_contextual_crop_field_formatter">advanced_help</a>  page.') . '</p>';
+      }
+      else {
+        $output .= '<p>' . t('For more information, please install <a href="https://www.drupal.org/project/advanced_help">advanced_help</a>  module.') . '</p>';
+      }
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook media_library_media_modify_referenced_entity_values_alter().
+ */
+function media_contextual_crop_field_formatter_media_library_media_modify_referenced_entity_values_alter(&$values, $fields, $referenced_entity) {
+
+  // Load multi crop plugins.
+  $multi_crop_plugins = \Drupal::service('plugin.manager.media_contextual_crop');
+  $plugin_definitions = $multi_crop_plugins->getDefinitions();
+
+  // Parse all entity field.
+  foreach ($fields as $field_name) {
+
+    // Pass on each field values.
+    $item_list = $referenced_entity->get($field_name);
+    foreach ($item_list->getValue() as $key => $item) {
+      // If a field as a target item of one of plugins.
+      foreach ($plugin_definitions as $plugin) {
+
+        $target_field = $plugin['target_field_name'];
+        if (isset($item[$target_field])) {
+
+          $data = $plugin['class']::processFieldData($item[$target_field]);
+          if ($data != NULL) {
+            $values[$field_name][$key][$target_field] = $data;
+          }
+          else {
+            unset($values[$field_name][$key][$target_field]);
+          }
+        }
+
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_entity_update().
+ */
+function media_contextual_crop_field_formatter_entity_update(EntityInterface $entity) {
+
+  if (!($entity instanceof FieldableEntityInterface)) {
+    return;
+  }
+
+  $fields = _media_contextual_crop_field_formatter_get_media_contextual_fields($entity);
+  if (count($fields) == 0) {
+    return;
+  }
+
+  // On each entity ref with context.
+  foreach ($fields as $field_name) {
+
+    // Get all Crop which are contextualized to this field.
+    $crops = _media_contextual_crop_field_formatter_get_crops_from_entity_field($entity, $field_name);
+    $base_context = _media_contextual_crop_field_formatter_get_base_context($entity, $field_name);
+
+    $field_value = $entity->get($field_name)->getValue();
+    $nb = count($field_value);
+
+    // For each crop.
+    foreach ($crops as $crop) {
+      // Get delta of the context.
+      $context = $crop->get('context')->getString();
+      $context_delta = str_replace($base_context, '', $context);
+
+      // Try to load media.
+      $media = Media::load($field_value[$context_delta]['target_id']);
+      if (!$media) {
+        $crop->delete();
+        return;
+      }
+
+      // Get image source.
+      $source_field_target = $media->getSource()->getSourceFieldValue($media);
+
+      // If crop context delta > field delta OR media has change on delta.
+      if ($context_delta >= $nb || $source_field_target != $crop->get('entity_id')->getString()) {
+        // Delete CROP.
+        $crop->delete();
+      }
+    }
+  }
+}
+
+/**
+ * Get all entity_reference_entity_modify fields.
+ *
+ * @param \Drupal\Core\Entity\FieldableEntityInterface $entity
+ *   Entity for check.
+ *
+ * @return array
+ *   List of field_name.
+ */
+function _media_contextual_crop_field_formatter_get_media_contextual_fields(FieldableEntityInterface $entity) {
+  $fields = [];
+  $field_definitions = $entity->getFieldDefinitions();
+  if (empty($field_definitions)) {
+    return [];
+  }
+
+  /**
+   * @var \Drupal\field\Entity\FieldConfig $field_definition
+   */
+  foreach ($field_definitions as $field_name => $field_definition) {
+
+    if ($field_definition->getType() === 'entity_reference_entity_modify') {
+      $fields[] = $field_name;
+    }
+
+  }
+
+  return $fields;
+}
+
+/**
+ * Construct base context string (without delta)
+ *
+ * @param \Drupal\Core\Entity\EntityInterface $entity
+ *   Entity of the context.
+ * @param string $field_name
+ *   Field name.
+ *
+ * @return string
+ *   Base of context.
+ */
+function _media_contextual_crop_field_formatter_get_base_context(EntityInterface $entity, string $field_name) {
+  return $entity->getEntityType()->id() . ':' . $entity->bundle() . ':' . $entity->id() . '.' . $field_name . '.';
+}
+
+/**
+ * Load crops contextualized on the field.
+ *
+ * @param \Drupal\Core\Entity\EntityInterface $entity
+ *   Entity of the context.
+ * @param string $field_name
+ *   Field name.
+ *
+ * @return \Drupal\crop\Entity\Crop[]
+ *   List of crops.
+ */
+function _media_contextual_crop_field_formatter_get_crops_from_entity_field(EntityInterface $entity, $field_name) {
+  $base_context = _media_contextual_crop_field_formatter_get_base_context($entity, $field_name);
+  $crop_ids = \Drupal::entityQuery('crop')
+    ->condition('context', $base_context . '%', 'LIKE')
+    ->accessCheck(FALSE)
+    ->execute();
+
+  return Crop::loadMultiple($crop_ids);
+}
+
+/**
+ * Implements hook_entity_delete().
+ */
+function media_contextual_crop_field_formatter_entity_delete(EntityInterface $entity) {
+
+  if (!($entity instanceof FieldableEntityInterface)) {
+    return;
+  }
+
+  $fields = _media_contextual_crop_field_formatter_get_media_contextual_fields($entity);
+  if (count($fields) == 0) {
+    return;
+  }
+
+  // Get all crop of the entity.
+  foreach ($fields as $field_name) {
+    $crops = _media_contextual_crop_field_formatter_get_crops_from_entity_field($entity, $field_name);
+    // Delete all crops.
+    foreach ($crops as $crop) {
+      $crop->delete();
+    }
+  }
+}

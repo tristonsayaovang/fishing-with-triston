@@ -1,8 +1,29 @@
 body {
     background-image: none !important;
     background-color: none !important;
+    font-family: var(--font-family-main);
+    max-width: 100dvw;
+    overflow-x: hidden;
+    min-height: 80dvh;
+    margin: 0;
 }
 
 a {
     color: var(--color-theme-anchor);
+}
+
+
+h1 {
+    margin: 0 0 20px 0;
+    line-height: 1.2;
+    font-size: 56px;
+}
+
+img {
+    max-width: 100%;
+}
+
+p {
+    font-size: 18px;
+    line-height: 1.5;
 }

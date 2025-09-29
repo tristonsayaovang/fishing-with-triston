@@ -1,0 +1,6 @@
+services:
+  media_library_media_modify_migrate.commands:
+    class: Drupal\media_library_media_modify\Commands\MigrateCommands
+    arguments: ['@media_library_media_modify']
+    tags:
+      - { name: drush.command }

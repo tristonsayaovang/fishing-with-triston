@@ -1,0 +1,24 @@
+:where(.margin-block-standard) {
+    margin-block: var(--margin-standard);
+}
+
+:where(.margin-block-short) {
+    margin-block: var(--margin-short);
+}
+
+:where(.margin-block-tiny) {
+    margin-block: var(--margin-tiny);
+}
+
+
+:where(.padding-block-standard) {
+    padding-block: var(--padding-standard);
+}
+
+:where(.margin-block-short) {
+    padding-block: var(--padding-short);
+}
+
+:where(.margin-block-tiny) {
+    padding-block: var(--padding-tiny);
+}

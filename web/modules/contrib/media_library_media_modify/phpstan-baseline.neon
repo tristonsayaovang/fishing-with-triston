@@ -1,0 +1,11 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Unsafe usage of new static\\(\\)\\.$#"
+			count: 1
+			path: src/MultipleUploadFormHandler.php
+
+		-
+			message: "#^Class Drupal\\\\media_library_media_modify\\\\Plugin\\\\Field\\\\FieldWidget\\\\MediaLibraryWithOverrideWidget extends @internal class Drupal\\\\media_library\\\\Plugin\\\\Field\\\\FieldWidget\\\\MediaLibraryWidget\\.$#"
+			count: 1
+			path: src/Plugin/Field/FieldWidget/MediaLibraryWithOverrideWidget.php

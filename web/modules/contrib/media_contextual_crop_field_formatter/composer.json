@@ -1,0 +1,24 @@
+{
+    "name": "drupal/media_contextual_crop_field_formatter",
+    "type": "drupal-module",
+    "description": "An implementation of media_contextual_crop API for media references",
+    "keywords": ["Drupal"],
+    "require": {
+        "composer/installers":  "^1.9 || ^2.0",
+        "cweagans/composer-patches": "^1.7",
+        "drupal/media_library_media_modify": "^1.0.0 || ^2.0.0@beta",
+        "drupal/media_contextual_crop": "~2.0",
+        "drupal/core": "^10 || ^11"
+    },
+    "require-dev": {
+        "drupal/advanced_help": "^1"
+    },
+    "extra": {
+        "enable-patching": true,
+        "patches": {
+            "drupal/media_library_media_modify": {
+                "#3270150 Add alteration": "https://git.drupalcode.org/project/media_library_media_modify/-/merge_requests/65.patch"
+            }
+        }
+    }
+}

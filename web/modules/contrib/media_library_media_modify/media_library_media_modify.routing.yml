@@ -1,0 +1,15 @@
+# @todo Move to entity_reference_entity_modify when it is no longer
+#   experimental.
+media_library_media_modify.form:
+  path: '/media_library_media_modify'
+  defaults:
+    _form: '\Drupal\media_library_media_modify\Form\ModifyEntityForm'
+  requirements:
+    _custom_access: '\Drupal\media_library_media_modify\Form\ModifyEntityForm::access'
+
+media_library_media_modify.ui:
+  path: '/media-library-media-modify'
+  defaults:
+    _controller: 'media_library_media_modify.ui_builder:buildUi'
+  requirements:
+    _custom_access: 'media_library_media_modify.ui_builder:checkAccess'

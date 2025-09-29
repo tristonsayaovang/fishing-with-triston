@@ -1,0 +1,23 @@
+theme.seven:
+  css:
+    component:
+      css/theme.seven.css: {}
+theme.gin:
+  css:
+    component:
+      css/theme.gin.css: {}
+theme.claro:
+  css:
+    component:
+      css/theme.claro.css: {}
+order_indicator:
+  css:
+    component:
+      css/order_indicator.css: {}
+  js:
+    js/order_indicator.js: {}
+  dependencies:
+    - core/drupal
+    - core/jquery
+    - core/once
+    - media_library/ui

@@ -1,0 +1,59 @@
+.media-library-item .media-library-item__edit.button,
+.media-library-item .media-library-item__edit.button:first-child,
+.media-library-item .media-library-item__edit.button:disabled,
+.media-library-item .media-library-item__edit.button:disabled:active,
+.media-library-item .media-library-item__edit.button:hover,
+.media-library-item .media-library-item__edit.button:focus {
+  padding: 0;
+  font-size: 0;
+}
+
+.media-library-item .media-library-item__edit.button:link,
+.media-library-item .media-library-item__edit.button:hover,
+.media-library-item .media-library-item__edit.button:focus,
+.media-library-item .media-library-item__edit.button:active,
+.media-library-item .media-library-item__edit.button:not(:hover):not(:checked) {
+  border-color: transparent !important;
+}
+
+.media-library-item .media-library-item__edit.button,
+.media-library-item .media-library-item__edit.button:first-child,
+.media-library-item .media-library-item__edit.button:hover,
+.media-library-item .media-library-item__edit.button:focus {
+  /* !important to override button class border. */
+  border: 1px solid #d3d4d9 !important;
+  width: 32px;
+  height: 32px;
+  margin: var(--gin-spacing-xs);
+  background-color: white;
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgb(0 0 0 / 15%);
+}
+
+/* claro and gin interfere */
+[dir="ltr"] .media-library-widget-modal .media-library-item .media-library-item__edit {
+  right: 0.625rem;
+}
+
+.media-library-widget-modal .media-library-item__click-to-select-checkbox {
+  top: 0.625rem;
+  left: 0.625rem;
+
+}
+/* Fix disabled state in modal */
+.media-library-item .media-library-item__edit.button:disabled,
+.media-library-item .media-library-item__edit.button:disabled:active {
+  background-color: transparent;
+}
+
+/* gin override for order_indicator.css */
+.media-library-item__order-indicator {
+  height: 32px;
+  width: 32px;
+  line-height: 32px;
+}
+
+/* Change cursor to grab in grid view */
+.media-library-item--grid {
+  cursor: grab;
+}

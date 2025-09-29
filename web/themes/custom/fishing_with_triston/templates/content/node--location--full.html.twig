@@ -60,24 +60,52 @@
  */
 #}
 
-{% set layout = layout ? 'layout--' ~ layout|clean_class %}
-
-{%
-  set classes = [
-    'node',
-    'node--type-' ~ node.bundle|clean_class,
-    layout ? 'grid-full',
-    node.isPromoted() ? 'node--promoted',
-    node.isSticky() ? 'node--sticky',
-    not node.isPublished() ? 'node--unpublished',
-    view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
-  ]
-%}
 
 <div class="hero">
-  <div class="hero-wrapper">
-    <img src="{{ file_url(node.field_hero_image.entity.field_media_image.entity.uri.value) }}" alt="{{ node.field_hero_image.entity.field_media_image.alt }}">
-
-  </div>
+	<div class="hero-wrapper">
+		<img src="{{ node.field_hero_image.entity.field_media_image.entity.uri.value|image_style('location_hero') }}" alt="{{ node.field_hero_image.entity.field_media_image.alt }}">
+		<div class="region location-title-container">
+			<div class="location-title">
+				<h1>{{label}}</h1>
+				<div class="clip"></div>
+			</div>
+		</div>
+	</div>
 </div>
 
+<div class="location-description-and-address padding-block-standard">
+
+	<div class="region">
+
+		<div class="location-description-and-address-wrapper">
+			<div class="location-description">
+				{{ node.field_description.processed }}
+			</div>
+
+			<div class="location-address">
+				{% if node.field_map_image.entity.field_media_image.entity.uri.value %}
+					<img src="{{ node.field_map_image.entity.field_media_image.entity.uri.value|image_style('map_image') }}" alt="{{ node.field_map_image.entity.field_media_image.alt }}">
+				{% endif %}
+				<a href="http://maps.google.com/?q={{node.field_address.value}}" target="_blank">{{node.field_address.value}}</a>
+			</div>
+
+		</div>
+
+	</div>
+</div>
+
+
+<div class="species padding-block-small">
+	<div class="region">
+		<h2>Fish Species</h2>
+		{% if node.field_fish_species is not empty %}
+			<div class="fish-species-list">
+				<ul>
+					{% for item in node.field_fish_species %}
+						<li>{{ item.entity.name.value }}</li>
+					{% endfor %}
+				</ul>
+			</div>
+		{% endif %}
+	</div>
+</div>

@@ -1,0 +1,14 @@
+{
+    "name": "drupal/media_contextual_crop_fp_adapter",
+    "type": "drupal-module",
+    "description": "An adapter between focal_point crop plugin and media_contextual_crop",
+    "keywords": ["Drupal"],
+    "require": {
+        "drupal/focal_point": "^1.5 || ^2.0@alpha",
+        "drupal/media_contextual_crop": "~2.0",
+        "drupal/core": "^10 || ^11"
+    },
+    "require-dev": {
+        "drupal/advanced_help": "^1"
+    }
+}

@@ -8,7 +8,7 @@
     }
 
     .logo img {
-        max-width: 125px;
+        max-width: 200px;
     }
 
     .main-navigation {
@@ -19,13 +19,13 @@
 
     #block-fishing-with-triston-main-menu {
 
-        .menu.menu--level-1 {
+        ul:not(.contextual-links){
             list-style: none;
             display: flex;
             flex-flow: row;
             gap: 25px;
 
-            .menu__link {
+            li a {
                 font-size: 24px;
                 font-weight: 600;
                 text-decoration: none;

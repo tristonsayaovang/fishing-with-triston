@@ -1,0 +1,34 @@
+<?php
+
+/**
+ * @file
+ * Contains media_contextual_crop_fp_adapter implemented hooks.
+ */
+
+declare(strict_types=1);
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function media_contextual_crop_fp_adapter_help($route_name, RouteMatchInterface $route_match) {
+  $advanced_help = \Drupal::moduleHandler()->moduleExists('advanced_help');
+  switch ($route_name) {
+    // Main module help for the media_contextual_crop_fp_adapter module.
+    case 'help.page.media_contextual_crop_fp_adapter':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('This module provides an interface between Focal Point Crop Plugin and contextual crop.') . '</p>';
+      $output .= '';
+      if ($advanced_help) {
+        $output .= '<p>' . t('For more information, please see <a href="/admin/help/ah/media_contextual_crop">advanced_help</a>  page.') . '</p>';
+      }
+      else {
+        $output .= '<p>' . t('For more information, please install <a href="https://www.drupal.org/project/advanced_help">advanced_help</a>  module.') . '</p>';
+      }
+      return $output;
+
+    default:
+  }
+}

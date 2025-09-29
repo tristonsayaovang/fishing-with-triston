@@ -1,0 +1,12 @@
+services:
+  media_contextual_crop.migrate:
+    class: \Drupal\media_contextual_crop\Commands\MediaContextualCropCommands
+    arguments:
+      - '@module_handler'
+      - '@extension.list.module'
+      - '@module_installer'
+      - '@config.factory'
+      - '@config.storage'
+      - '@entity_type.manager'
+    tags:
+      - { name: drush.command }

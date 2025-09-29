@@ -1,0 +1,15 @@
+services:
+  # @todo Move to entity_reference_entity_modify when it is no longer
+  #   experimental.
+  media_library_media_modify:
+    arguments: [ '@database', '@config.factory', '@keyvalue', '@entity_field.manager', '@entity.last_installed_schema.repository', '@entity_display.repository', '@plugin.manager.field.widget', '@entity_type.manager' ]
+    class: Drupal\media_library_media_modify\EntityReferenceOverrideService
+
+  media_library_media_modify.ui_builder:
+    class: Drupal\media_library_media_modify\MediaLibraryMediaModifyUiBuilder
+    arguments: [ '@entity_type.manager', '@request_stack', '@views.executable', '@form_builder', '@media_library.opener_resolver' ]
+
+  Drupal\media_library_media_modify\MediaLibraryMediaModifyFieldWidgetOpener:
+    public: false
+    decorates: media_library.opener.field_widget
+    arguments: [ '@entity_type.manager' ]

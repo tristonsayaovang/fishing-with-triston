@@ -1,0 +1,13 @@
+name: 'Media Directories UI'
+description: 'Provides alternative UI for media management.'
+type: module
+core_version_requirement: ^10.2 || ^11
+
+dependencies:
+  - media_directories:media_directories
+  - entity_browser:entity_browser
+
+# Information added by Drupal.org packaging script on 2025-02-24
+version: '2.2.0-beta1'
+project: 'media_directories'
+datestamp: 1740437434

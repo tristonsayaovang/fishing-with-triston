@@ -1,0 +1,32 @@
+<?php
+
+/**
+ * @file
+ * Contains media_contextual_crop updates.
+ */
+
+/**
+ * Flush legacy public folders.
+ */
+function media_contextual_crop_update_10202() {
+
+  $file_system = \Drupal::service('file_system');
+
+  // Clean 2.0 context folder.
+  $file_system->deleteRecursive('public://context');
+
+  // Clean 1.0 source folders.
+  $file_system->deleteRecursive('public://media_contextual_crop');
+  $file_system->deleteRecursive('public://multi_crop_embed');
+}
+
+/**
+ * Flush contextual folders.
+ */
+function media_contextual_crop_update_10210() {
+
+  $file_system = \Drupal::service('file_system');
+
+  // Clean 2.0.x context folder.
+  $file_system->deleteRecursive('public://contextual');
+}

@@ -1,0 +1,42 @@
+.media-library-item__edit.button,
+.media-library-item__edit.button:first-child,
+.media-library-item__edit.button:disabled,
+.media-library-item__edit.button:disabled:active,
+.media-library-item__edit.button:hover,
+.media-library-item__edit.button:focus {
+  position: absolute;
+  z-index: 1;
+  top: 10px;
+  overflow: hidden;
+  width: 21px;
+  height: 21px;
+  margin: 5px;
+  padding: 0;
+  transition: 0.2s border-color;
+  color: transparent;
+  border: 2px solid #ccc;
+  border-radius: 20px;
+  background-size: 13px;
+  text-shadow: none;
+  font-size: 0;
+}
+
+.media-library-item__edit.button,
+.media-library-item__edit.button:first-child,
+.media-library-item__edit.button:disabled,
+.media-library-item__edit.button:disabled:active,
+.media-library-item__edit.button:hover,
+.media-library-item__edit.button:focus {
+  background: url("../../../../core/misc/icons/787878/pencil.svg") #fff center no-repeat;
+  background-size: 13px;
+}
+
+.media-library-item__edit.button:hover,
+.media-library-item__edit.button:focus,
+.media-library-item__edit.button:disabled:active {
+  border-color: #40b6ff;
+}
+
+.media-library-widget-modal .media-library-item__edit {
+  right: 10px;
+}

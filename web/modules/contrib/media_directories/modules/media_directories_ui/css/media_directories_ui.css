@@ -1,0 +1,25 @@
+.media-item {
+  cursor: default;
+}
+
+.media-item .views-field-entity-browser-select {
+  position: absolute;
+  height: 0;
+  overflow: hidden;
+}
+
+body.media-directories-modal:not(.toolbar-tray-open) .layout-container {
+  margin: 0;
+}
+
+/* Remove negative margin. */
+.ui-dialog .media-library-wrapper {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* Add some spacing round tabs. */
+.media-library-wrapper .media-library-menu {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}

@@ -1,0 +1,30 @@
+:where(.hero) {
+
+    .hero-wrapper {
+        display: grid;
+        grid-template-areas: 'hero';
+
+        & > * {
+            grid-area: hero;
+        }
+
+        :where(.location-title-container) {
+            width: 100%;
+            display: flex;
+
+            :where(.location-title) {
+                max-width: 40dvw;
+                background: var(--color-theme-white);
+                padding: 15px 25px 0 25px;
+                align-self: flex-end;
+                border-top-right-radius: 15px;
+                border-top-left-radius: 15px;
+
+                & > h1 {
+                    margin-bottom: 0;
+                }
+            }
+
+        }
+    }
+}

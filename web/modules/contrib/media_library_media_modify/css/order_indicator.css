@@ -1,0 +1,15 @@
+.media-library-item__order-indicator {
+  background-color: #0076c0;
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  color: white;
+  display: inline-block;
+  height: 25px;
+  left: 1rem;
+  line-height: 25px;
+  position: absolute;
+  text-align: center;
+  top: 1rem;
+  width: 25px;
+  z-index: 1;
+}

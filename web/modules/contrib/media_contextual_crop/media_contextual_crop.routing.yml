@@ -1,0 +1,10 @@
+media_contextual_crop.style_private:
+  path: '/system/files/contextual/styles/{image_style}/{context}/{scheme}'
+  defaults:
+    _controller:  '\Drupal\media_contextual_crop\Controller\ContextualImageStyleDownloadController::process'
+  requirements:
+    # It's a "derivative image" access, so public by default.
+    _access: 'TRUE'
+
+route_callbacks:
+  - '\Drupal\media_contextual_crop\Routing\ImageStyleRoutes::routes'

@@ -1,0 +1,19 @@
+services:
+  plugin.manager.media_contextual_crop:
+    class: Drupal\media_contextual_crop\MediaContextualCropPluginManager
+    parent: default_plugin_manager
+
+  media_contextual_crop.service:
+    class: Drupal\media_contextual_crop\MediaContextualCropService
+    arguments: ['@plugin.manager.media_contextual_crop', '@file_system', '@stream_wrapper_manager', '@entity_type.manager', '@entity.repository', '@file_url_generator', '@request_stack', '@config.factory']
+
+  plugin.manager.media_contextual_crop_use_case:
+    class: Drupal\media_contextual_crop\MediaContextualCropUseCasePluginManager
+    parent: default_plugin_manager
+    arguments: ['@media_contextual_crop.service']
+
+  path_processor.media_contextual_crop:
+    class: Drupal\media_contextual_crop\PathProcessor\PathProcessorImageStyles
+    arguments: ['@stream_wrapper_manager', '@entity_type.manager']
+    tags:
+      - { name: path_processor_inbound, priority: 350 }

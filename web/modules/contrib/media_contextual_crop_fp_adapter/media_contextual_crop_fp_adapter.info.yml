@@ -1,0 +1,13 @@
+name: Media Contextual Cropping with focal_point Plugin
+description: Provides a plugin for using focal_point in contextual crop
+type: module
+package: Media Contextual Cropping
+core_version_requirement: ^10 || ^11
+dependencies:
+  - media_contextual_crop:media_contextual_crop
+  - focal_point:focal_point
+
+# Information added by Drupal.org packaging script on 2024-09-04
+version: '2.0.2'
+project: 'media_contextual_crop_fp_adapter'
+datestamp: 1725437114

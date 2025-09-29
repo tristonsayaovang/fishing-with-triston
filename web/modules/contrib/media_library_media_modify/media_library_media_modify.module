@@ -1,0 +1,221 @@
+<?php
+
+/**
+ * @file
+ * The media_library_media_modify hook implementations.
+ */
+
+use Drupal\Component\Utility\Html;
+use Drupal\Core\Ajax\AjaxResponse;
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Render\Element;
+use Drupal\media_library_media_modify\AjaxSubmitHandler;
+use Drupal\media_library_media_modify\Exception\ReadOnlyEntityException;
+use Drupal\media_library_media_modify\Form\EditForm;
+use Drupal\media_library_media_modify\Form\FileEditForm;
+use Drupal\media_library_media_modify\MultipleUploadFormHandler;
+use Drupal\media\MediaInterface;
+use Drupal\media\Entity\MediaType;
+use Drupal\media\Plugin\media\Source\File;
+
+/**
+ * Implements hook_entity_presave().
+ *
+ * @todo Move to entity_reference_entity_modify when it is no longer
+ *   experimental.
+ */
+function media_library_media_modify_entity_presave(EntityInterface $entity): void {
+  if (isset($entity->entity_reference_entity_modify)) {
+    throw new ReadOnlyEntityException(sprintf('The entity (ID: %s, entity_type: %s) is overridden and not allowed to be saved.', $entity->id(), $entity->getEntityTypeId()));
+  }
+}
+
+/**
+ * Implements hook_field_formatter_info_alter().
+ *
+ * @todo Move to entity_reference_entity_modify when it is no longer
+ *   experimental.
+ */
+function media_library_media_modify_field_formatter_info_alter(array &$info): void {
+  foreach ($info as $formatter_id => $formatter) {
+    if (in_array('entity_reference', $formatter['field_types'])) {
+      $info[$formatter_id]['field_types'][] = 'entity_reference_entity_modify';
+    }
+  }
+}
+
+/**
+ * Implements hook_entity_build_defaults_alter().
+ *
+ * @todo Move to entity_reference_entity_modify when it is no longer
+ *   experimental.
+ */
+function media_library_media_modify_entity_build_defaults_alter(array &$build, EntityInterface $entity, string $view_mode): void {
+  if (isset($entity->entity_reference_entity_modify)) {
+    $build['#cache']['keys'][] = 'entity_reference_entity_modify:' . $entity->entity_reference_entity_modify;
+  }
+}
+
+/**
+ * Implements hook_form_BASE_FORM_ID_alter().
+ */
+function media_library_media_modify_form_media_library_add_form_alter(array &$form, FormStateInterface $form_state, string $form_id): void {
+  /** @var \Drupal\media_library\MediaLibraryState $media_library_state */
+  $media_library_state = $form_state->get('media_library_state');
+  $added_media = $form_state->get('media') ?: [];
+  if ((is_countable($added_media) ? count($added_media) : 0) > 1 && $media_library_state->getOpenerParameters()['multi_edit_on_create']) {
+    /** @var \Drupal\media_library_media_modify\MultipleUploadFormHandler $multiple_form_handler */
+    $multiple_form_handler = \Drupal::classResolver()->getInstanceFromDefinition(MultipleUploadFormHandler::class);
+    $multiple_form_handler->buildForm($form, $form_state);
+    return;
+  }
+  if ($media_library_state->getOpenerParameters()['no_edit_on_create']) {
+    if ($form_id === 'media_library_add_form_upload') {
+      $form['container']['upload']['#process'][] = '_media_library_media_modify_file_widget_overwrite_process';
+    }
+    elseif ($form_id === 'media_library_add_form_dropzonejs') {
+      $form['auto_select_handler']['#submit'] = ['_media_library_media_modify_file_widget_upload_submit'];
+      $form['auto_select_handler']['#ajax']['callback'] = '_media_library_media_modify_update_library';
+    }
+  }
+}
+
+function _media_library_media_modify_file_widget_overwrite_process(array $element): array {
+  $element['upload_button']['#submit'] = ['_media_library_media_modify_file_widget_upload_submit'];
+  $element['upload_button']['#ajax']['callback'] = '_media_library_media_modify_update_library';
+  return $element;
+}
+
+function _media_library_media_modify_update_library(array $form, FormStateInterface $form_state): AjaxResponse {
+  /** @var \Drupal\media_library\Form\FileUploadForm $form_class */
+  $form_class = $form_state->getFormObject();
+  $response = $form_class->updateLibrary($form, $form_state);
+
+  foreach ($response->getCommands() as &$command) {
+    // Because we do remove the step of showing the add/edit form, which has a different selector, we need to change
+    // the selector to replace the full media library shown in the modal.
+    if ($command['command'] === 'insert') {
+      $command['selector'] = '#media-library-wrapper';
+    }
+  }
+
+  return $response;
+}
+
+function _media_library_media_modify_file_widget_upload_submit(array $form, FormStateInterface $form_state): void {
+  /** @var \Drupal\media_library\Form\FileUploadForm $form_class*/
+  $form_class = $form_state->getFormObject();
+  $form_class->uploadButtonSubmit($form, $form_state);
+
+  foreach ($form_state->get('media') as $delta => $media) {
+    $form['media'][$delta] = [
+      'fields' => [
+        '#parents' => [
+          'media',
+          $delta,
+          'fields',
+        ],
+      ],
+    ];
+  }
+  $form_class->submitForm($form, $form_state);
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function media_library_media_modify_form_alter(array &$form, FormStateInterface $form_state, string $form_id): void {
+  if ($form_state->get('media_library_media_modify')) {
+    /** @var \Drupal\Core\Entity\EntityInterface $referenced_entity */
+    $referenced_entity = $form_state->getBuildInfo()['args'][0]['referenced_entity'] ?? NULL;
+    if ($referenced_entity instanceof MediaInterface) {
+      $media_type = MediaType::load($referenced_entity->bundle());
+      if ($media_type->getSource() instanceof File) {
+        $source_field = $media_type->getSource()->getSourceFieldDefinition($media_type);
+        $elements = $form[$source_field->getName()]['widget'] ?? [];
+        foreach (Element::children($elements) as $element) {
+          $form[$source_field->getName()]['widget'][$element]['#process'][] = '_media_library_media_modify_file_widget_hide_upload_and_remove';
+        }
+      }
+    }
+  }
+}
+
+/**
+ * Hides upload and remove button from file widget.
+ *
+ * @param array $element
+ *   The form element to process.
+ *
+ * @return array
+ *   The processed form element.
+ */
+function _media_library_media_modify_file_widget_hide_upload_and_remove(array $element): array {
+  foreach (['upload_button', 'remove_button'] as $key) {
+    $element[$key]['#access'] = FALSE;
+  }
+  return $element;
+}
+
+/**
+ * Implements hook_library_info_alter().
+ */
+function media_library_media_modify_library_info_alter(array &$libraries, string $extension): void {
+  if ($extension == 'seven') {
+    $libraries['media_library']['dependencies'][] = 'media_library_media_modify/theme.seven';
+  }
+  if ($extension == 'gin') {
+    // @todo Revisit after https://www.drupal.org/project/gin/issues/3233435 is
+    // fixed.
+    $libraries['gin']['dependencies'][] = 'media_library_media_modify/theme.gin';
+  }
+  if ($extension == 'claro') {
+    $libraries['media_library.theme']['dependencies'][] = 'media_library_media_modify/theme.claro';
+  }
+}
+
+/**
+ * Implements hook_media_source_info_alter().
+ */
+function media_library_media_modify_media_source_info_alter(array &$sources): void {
+
+  if (empty($sources['audio_file']['forms']['media_library_media_modify_edit'])) {
+    $sources['audio_file']['forms']['media_library_media_modify_edit'] = FileEditForm::class;
+  }
+  if (empty($sources['file']['forms']['media_library_media_modify_edit'])) {
+    $sources['file']['forms']['media_library_media_modify_edit'] = FileEditForm::class;
+  }
+  if (empty($sources['image']['forms']['media_library_media_modify_edit'])) {
+    $sources['image']['forms']['media_library_media_modify_edit'] = FileEditForm::class;
+  }
+  if (empty($sources['video_file']['forms']['media_library_media_modify_edit'])) {
+    $sources['video_file']['forms']['media_library_media_modify_edit'] = FileEditForm::class;
+  }
+  if (empty($sources['oembed:video']['forms']['media_library_media_modify_edit'])) {
+    $sources['oembed:video']['forms']['media_library_media_modify_edit'] = EditForm::class;
+  }
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function media_library_media_modify_form_media_form_alter(&$form, FormStateInterface $form_state): void {
+  $ajax_class = new AjaxSubmitHandler();
+  if (!$ajax_class->isAjax()) {
+    return;
+  }
+
+  $form['actions']['delete']['#access'] = FALSE;
+  $form['actions']['submit']['#ajax']['callback'] = [$ajax_class, 'ajaxSubmit'];
+
+  // @todo static::ajaxSubmit() requires data-drupal-selector to be the same
+  //   between the various Ajax requests. A bug in
+  //   \Drupal\Core\Form\FormBuilder prevents that from happening unless
+  //   $form['#id'] is also the same. Normally, #id is set to a unique HTML
+  //   ID via Html::getUniqueId(), but here we bypass that in order to work
+  //   around the data-drupal-selector bug. This is okay so long as we
+  //   assume that this form only ever occurs once on a page. Remove this
+  //   workaround in https://www.drupal.org/node/2897377.
+  $form['#id'] = Html::getId($form_state->getBuildInfo()['form_id']);
+}

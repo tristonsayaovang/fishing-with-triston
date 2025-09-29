@@ -1,0 +1,18 @@
+uuid: 05a356c0-e855-455d-8021-e5511376b569
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+name: 'Home Page'
+type: home_page
+description: 'There should only ever be 1 home page'
+help: null
+new_revision: true
+preview_mode: 1
+display_submitted: true

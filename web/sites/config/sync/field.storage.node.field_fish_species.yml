@@ -1,0 +1,20 @@
+uuid: 68ece094-4be0-4910-bdd2-ffbc864aeba7
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - taxonomy
+id: node.field_fish_species
+field_name: field_fish_species
+entity_type: node
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

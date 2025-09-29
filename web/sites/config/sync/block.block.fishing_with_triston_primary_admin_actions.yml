@@ -1,0 +1,20 @@
+uuid: 6eeeae74-d580-43be-9e14-b186fb2a2ac7
+langcode: en
+status: true
+dependencies:
+  theme:
+    - fishing_with_triston
+_core:
+  default_config_hash: Q9_2whdOj1YIomfvsIfopROW4FT_X5pY0DjdOiOaQ5U
+id: fishing_with_triston_primary_admin_actions
+theme: fishing_with_triston
+region: header
+weight: -5
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: 'Primary admin actions'
+  label_display: '0'
+  provider: core
+visibility: {  }

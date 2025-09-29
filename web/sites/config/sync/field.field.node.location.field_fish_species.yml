@@ -1,0 +1,29 @@
+uuid: 708c8cf7-7cfb-405d-ac2c-69f5eaf5a33d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_fish_species
+    - node.type.location
+    - taxonomy.vocabulary.fish_species
+id: node.location.field_fish_species
+field_name: field_fish_species
+entity_type: node
+bundle: location
+label: 'Fish Species'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      fish_species: fish_species
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

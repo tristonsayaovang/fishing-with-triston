@@ -1,0 +1,31 @@
+uuid: 84280904-b677-4676-940d-18c3a64109d1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.fish_species.field_fish_image
+    - taxonomy.vocabulary.fish_species
+  module:
+    - text
+id: taxonomy_term.fish_species.default
+targetEntityType: taxonomy_term
+bundle: fish_species
+mode: default
+content:
+  description:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_fish_image:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden: {  }

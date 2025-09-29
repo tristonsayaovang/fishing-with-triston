@@ -1,0 +1,17 @@
+uuid: 26ce8fe2-2d10-4d41-b82f-c446e259f7c1
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: map_image
+label: 'Map Image'
+effects:
+  1e1212ac-0b4b-4046-8c17-393b7fba6111:
+    uuid: 1e1212ac-0b4b-4046-8c17-393b7fba6111
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 325
+      height: 250
+      crop_type: focal_point

@@ -1,0 +1,17 @@
+uuid: 52679199-409b-4c0d-bea5-b92b4af495d7
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: location_hero
+label: 'Location Hero'
+effects:
+  055d1303-0782-4619-b6d2-09f6c488ec6b:
+    uuid: 055d1303-0782-4619-b6d2-09f6c488ec6b
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 2000
+      height: 450
+      crop_type: focal_point

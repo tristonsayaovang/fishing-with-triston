@@ -1,0 +1,19 @@
+uuid: fb0ae6c5-83c2-4eec-ae2d-cf632d3d94b8
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - text
+id: node.field_hero_copy
+field_name: field_hero_copy
+entity_type: node
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

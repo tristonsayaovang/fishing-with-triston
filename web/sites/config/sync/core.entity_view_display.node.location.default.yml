@@ -1,0 +1,73 @@
+uuid: 816013de-7680-4eaf-b181-c7ca7efcddeb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.location.field_address
+    - field.field.node.location.field_description
+    - field.field.node.location.field_fish_species
+    - field.field.node.location.field_hero_copy
+    - field.field.node.location.field_hero_image
+    - field.field.node.location.field_map_image
+    - node.type.location
+  module:
+    - text
+    - user
+id: node.location.default
+targetEntityType: node
+bundle: location
+mode: default
+content:
+  field_address:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 103
+    region: content
+  field_description:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  field_fish_species:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 105
+    region: content
+  field_hero_copy:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  field_hero_image:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  field_map_image:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 104
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden: {  }

@@ -8,9 +8,12 @@ dependencies:
     - field.field.node.location.field_fish_species
     - field.field.node.location.field_hero_copy
     - field.field.node.location.field_hero_image
+    - field.field.node.location.field_image_carousel
+    - field.field.node.location.field_image_carousel_copy
     - field.field.node.location.field_map_image
     - node.type.location
   module:
+    - entity_reference_revisions
     - text
     - user
 id: node.location.default
@@ -55,6 +58,22 @@ content:
       link: false
     third_party_settings: {  }
     weight: 102
+    region: content
+  field_image_carousel:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 106
+    region: content
+  field_image_carousel_copy:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 107
     region: content
   field_map_image:
     type: entity_reference_entity_view

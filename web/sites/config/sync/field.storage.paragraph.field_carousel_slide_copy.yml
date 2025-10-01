@@ -1,0 +1,19 @@
+uuid: b983de1d-986b-4583-a4b5-12cc468ac9b0
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+    - text
+id: paragraph.field_carousel_slide_copy
+field_name: field_carousel_slide_copy
+entity_type: paragraph
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

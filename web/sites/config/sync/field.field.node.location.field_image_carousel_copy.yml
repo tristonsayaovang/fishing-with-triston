@@ -1,0 +1,24 @@
+uuid: 6e844fb0-f740-4e9b-8287-282b7c819efa
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_image_carousel_copy
+    - filter.format.full_html
+    - node.type.location
+  module:
+    - text
+id: node.location.field_image_carousel_copy
+field_name: field_image_carousel_copy
+entity_type: node
+bundle: location
+label: 'Image Carousel Copy'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - full_html
+field_type: text_long

@@ -1,0 +1,24 @@
+uuid: 0ac93a8a-b520-4b4c-93f8-92af963276c6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_carousel_slide_copy
+    - filter.format.full_html
+    - paragraphs.paragraphs_type.image_carousel_slide
+  module:
+    - text
+id: paragraph.image_carousel_slide.field_carousel_slide_copy
+field_name: field_carousel_slide_copy
+entity_type: paragraph
+bundle: image_carousel_slide
+label: 'Carousel Slide Copy'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - full_html
+field_type: text_long

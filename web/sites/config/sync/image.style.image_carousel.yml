@@ -1,0 +1,17 @@
+uuid: 8b755061-cfed-413c-89ed-dff0208a5a90
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: image_carousel
+label: 'Image Carousel'
+effects:
+  160c7078-ea88-4f2b-a759-2bc4ff1ad4be:
+    uuid: 160c7078-ea88-4f2b-a759-2bc4ff1ad4be
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 800
+      height: 800
+      crop_type: focal_point

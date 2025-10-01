@@ -29,30 +29,56 @@
 
     50% {
         z-index: 2;
-        transform: rotate(-10deg) translate(75%, -50%) scale(1);
+        transform: rotate(-10deg) translate(75%, -50%) cale(0.25);
 
     }
 
     51% {
-        z-index: 2;
+        z-index: 4;
         transform: rotate(-10deg) translate(75%, -50%) scale(0.25);
     }
 
     100% {
-        z-index: 2;
+        z-index: 4;
         transform: rotate(0deg) translate(0, 0) scale(1);
     }
 }
 
 :where(.image-carousel-container) {
 
+    display: grid;
+    grid-template-areas: 'imageCarouselContainer';
+    padding-bottom: 40px;
+    
+    & > * {
+        grid-area: imageCarouselContainer;
+    }
+
+    .region {
+        z-index: 1;
+    }
+
+    .background {
+        background: var(--color-theme-blue); 
+        width: 100%;
+        height: 85%;
+        align-self: flex-end;
+        pointer-events: none;
+    }
+
 
     .image-carousel-wrapper {
         display: grid;
         grid-template-columns: 1.5fr 2fr;
+        align-items: center;
         gap: 40px;
     }
 
+    .image-carousel-copy-container {
+        background: var(--color-theme-white);
+        padding: 40px 25px;
+        margin-top: 10%;
+    }
     .carousel-photos-container {
         display: grid;
         grid-template-columns: 100px 2fr 100px;
@@ -86,6 +112,7 @@
         &.active {
             z-index: 2;
             transform: rotate(0) !important;
+            
         }
 
         &.next-active-slide {
@@ -101,6 +128,10 @@
         &.animate-prev {
             animation-name: prevSlide;
             animation-duration: 2s;
+        }
+
+        &.previously-active-slide {
+            z-index: 3;
         }
 
 

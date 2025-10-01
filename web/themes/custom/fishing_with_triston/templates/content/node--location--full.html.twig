@@ -99,6 +99,7 @@
 {% if node.field_image_carousel is iterable %}
 
 	<section class="image-carousel-container margin-block-standard" data-role="imageCarouselContainer">
+		<div class="background"></div>
 		<div class="region">
 			<div class="image-carousel-wrapper">
 				<div class="image-carousel-copy-container">
@@ -115,10 +116,10 @@
 					<div class="carousel-slides-container" data-role="imageCarousel" data-current="0">
 						{% for slide in node.field_image_carousel %}
 							{% set index = ( index | default(0) ) %}
-							<div class="image-carousel-slide 
-							{{index is same as 0 ? 'active' : '' }}
-							{{index is same as 1 ? 'next-active-slide' : '' }}
-							" data-index="{{index}}" data-role="carouselSlide">
+							<div class="image-carousel-slide
+																							{{index is same as 0 ? 'active' : '' }}
+																							{{index is same as 1 ? 'next-active-slide' : '' }}
+																							" data-index="{{index}}" data-role="carouselSlide">
 								{% if slide.entity.field_image_carousel_image.entity.field_media_image.entity %}
 									<img src="{{ slide.entity.field_image_carousel_image.entity.field_media_image.entity.uri.value|image_style('image_carousel') }}" alt="{{ slide.entity.field_image_carousel_image.entity.field_media_image.entity.field_media_image.alt }}" loading="lazy" data-role="carouselImage"/>
 								{% endif %}
@@ -141,20 +142,21 @@
 
 			</div>
 		</div>
-	{% endif %}
+	</section>
+{% endif %}
 
 
-	<div class="species padding-block-small">
-		<div class="region">
-			<h2>Fish Species</h2>
-			{% if node.field_fish_species is not empty %}
-				<div class="fish-species-list">
-					<ul>
-						{% for item in node.field_fish_species %}
-							<li>{{ item.entity.name.value }}</li>
-						{% endfor %}
-					</ul>
-				</div>
-			{% endif %}
-		</div>
+<div class="species padding-block-small">
+	<div class="region">
+		<h2>Fish Species</h2>
+		{% if node.field_fish_species is not empty %}
+			<div class="fish-species-list">
+				<ul>
+					{% for item in node.field_fish_species %}
+						<li>{{ item.entity.name.value }}</li>
+					{% endfor %}
+				</ul>
+			</div>
+		{% endif %}
 	</div>
+</div>

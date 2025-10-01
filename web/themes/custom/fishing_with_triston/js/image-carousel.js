@@ -25,7 +25,18 @@
 
                     }
                     if (event.animationName === 'prevSlide') {
+                          slide.classList.add('active');
+
+                        carouselSlides.forEach((otherSlides) => {
+                            if (otherSlides.dataset.index !== slide.dataset.index) {
+                                otherSlides.classList.remove('active');
+                                otherSlides.classList.remove('previously-active-slide');
+                            }
+
+                        });
                         slide.classList.remove('animate-prev');
+
+                      
 
                     }
                 })
@@ -52,9 +63,9 @@
 
 
             const setCarouselIndex = (newIndex, forwards = true) => {
+                const oldIndex = carousel.dataset.current;
+
                 carouselSlides.forEach((slide) => {
-
-
 
                     if (slide.dataset.index === carousel.dataset.current) {
                         if (forwards) {
@@ -65,19 +76,35 @@
 
                 });
 
-                carousel.dataset.current = newIndex;
 
                 carouselSlides.forEach((slide) => {
-                    slide.classList.remove('active');
+                    if (forwards) {
+                        slide.classList.remove('active');
+                    }
+
+                    if (!forwards) {
+                        if (slide.dataset.index === oldIndex) {
+                            slide.classList.add('previously-active-slide');
+                        }
+                    }
 
                     if (slide.dataset.index === newIndex.toString()) {
                         if (!forwards) {
+
                             slide.classList.add('animate-prev');
+                            setRotationForNextPhoto(newIndex);
+                            return;
                         }
+
                         slide.classList.add('active');
 
                     }
+
+
                 });
+
+                carousel.dataset.current = newIndex;
+
                 setRotationForNextPhoto(newIndex);
 
             };

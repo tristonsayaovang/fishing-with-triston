@@ -63,6 +63,7 @@
 
 <div class="hero">
 	<div class="hero-wrapper">
+		<div class="overlay"></div>
 		<img src="{{ node.field_hero_image.entity.field_media_image.entity.uri.value|image_style('location_hero') }}" alt="{{ node.field_hero_image.entity.field_media_image.alt }}">
 		<div class="region location-title-container">
 			<div class="location-title">
@@ -84,7 +85,7 @@
 
 			<div class="location-address">
 				{% if node.field_map_image.entity.field_media_image.entity.uri.value %}
-					<img src="{{ node.field_map_image.entity.field_media_image.entity.uri.value|image_style('map_image') }}" alt="{{ node.field_map_image.entity.field_media_image.alt }}">
+					<img src="{{ node.field_map_image.entity.field_media_image.entity.uri.value|image_style('map_image') }}" alt="{{ node.field_map_image.entity.field_media_image.alt }}" loading="lazy"/>
 				{% endif %}
 				<a href="http://maps.google.com/?q={{node.field_address.value}}" target="_blank">{{node.field_address.value}}</a>
 			</div>
@@ -95,17 +96,65 @@
 </div>
 
 
-<div class="species padding-block-small">
-	<div class="region">
-		<h2>Fish Species</h2>
-		{% if node.field_fish_species is not empty %}
-			<div class="fish-species-list">
-				<ul>
-					{% for item in node.field_fish_species %}
-						<li>{{ item.entity.name.value }}</li>
-					{% endfor %}
-				</ul>
+{% if node.field_image_carousel is iterable %}
+
+	<section class="image-carousel-container margin-block-standard" data-role="imageCarouselContainer">
+		<div class="region">
+			<div class="image-carousel-wrapper">
+				<div class="image-carousel-copy-container">
+					{% if node.field_image_carousel_copy.value %}
+						{{node.field_image_carousel_copy.processed }}
+					{% endif %}
+				</div>
+
+				<div class="carousel-photos-container">
+					<button class="prev carousel-button" data-role="prevButton">
+						Previous
+					</button>
+
+					<div class="carousel-slides-container" data-role="imageCarousel" data-current="0">
+						{% for slide in node.field_image_carousel %}
+							{% set index = ( index | default(0) ) %}
+							<div class="image-carousel-slide 
+							{{index is same as 0 ? 'active' : '' }}
+							{{index is same as 1 ? 'next-active-slide' : '' }}
+							" data-index="{{index}}" data-role="carouselSlide">
+								{% if slide.entity.field_image_carousel_image.entity.field_media_image.entity %}
+									<img src="{{ slide.entity.field_image_carousel_image.entity.field_media_image.entity.uri.value|image_style('image_carousel') }}" alt="{{ slide.entity.field_image_carousel_image.entity.field_media_image.entity.field_media_image.alt }}" loading="lazy" data-role="carouselImage"/>
+								{% endif %}
+
+
+								<div class="image-carousel-slide-text-wrapper">
+									{% if slide.entity.field_carousel_slide_copy.value %}
+										{{slide.entity.field_carousel_slide_copy.processed}}
+									{% endif %}
+								</div>
+							</div>
+							{% set index = index + 1 %}
+						{% endfor %}
+
+					</div>
+					<button class="next carousel-button" data-role="nextButton">
+						Next
+					</button>
+				</div>
+
 			</div>
-		{% endif %}
+		</div>
+	{% endif %}
+
+
+	<div class="species padding-block-small">
+		<div class="region">
+			<h2>Fish Species</h2>
+			{% if node.field_fish_species is not empty %}
+				<div class="fish-species-list">
+					<ul>
+						{% for item in node.field_fish_species %}
+							<li>{{ item.entity.name.value }}</li>
+						{% endfor %}
+					</ul>
+				</div>
+			{% endif %}
+		</div>
 	</div>
-</div>

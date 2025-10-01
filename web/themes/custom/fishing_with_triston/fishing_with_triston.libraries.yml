@@ -10,5 +10,7 @@ global-styling:
       css/region.css: {}
       css/hero.css: {}
       css/location.css: {}
+      css/image-carousel.css: {}
   js:
     js/script.js: {}
+    js/image-carousel.js: {}

@@ -1,0 +1,121 @@
+@keyframes nextSlide {
+    0% {
+        z-index: 3;
+        transform: rotate(0deg) translate(0, 0) scale(1);
+    }
+
+    50% {
+        z-index: 3;
+        transform: rotate(-10deg) translate(75%, -50%) scale(0.25);
+    }
+
+    51% {
+        z-index: 0;
+        transform: rotate(-10deg) translate(75%, -50%) scale(0.25);
+    }
+
+    100% {
+        z-index: 0;
+        transform: rotate(-10deg) translate(0, 0) scale(0.75);
+    }
+}
+
+
+@keyframes prevSlide {
+    0% {
+        z-index: 2;
+        transform: rotate(0deg) translate(0, 0) scale(1);
+    }
+
+    50% {
+        z-index: 2;
+        transform: rotate(-10deg) translate(75%, -50%) scale(1);
+
+    }
+
+    51% {
+        z-index: 2;
+        transform: rotate(-10deg) translate(75%, -50%) scale(0.25);
+    }
+
+    100% {
+        z-index: 2;
+        transform: rotate(0deg) translate(0, 0) scale(1);
+    }
+}
+
+:where(.image-carousel-container) {
+
+
+    .image-carousel-wrapper {
+        display: grid;
+        grid-template-columns: 1.5fr 2fr;
+        gap: 40px;
+    }
+
+    .carousel-photos-container {
+        display: grid;
+        grid-template-columns: 100px 2fr 100px;
+        gap: 20px;
+    }
+
+    .carousel-slides-container {
+        display: grid;
+        grid-template-areas: "carouselPhotos";
+
+        &>* {
+            grid-area: carouselPhotos;
+        }
+    }
+
+    .image-carousel-slide {
+        padding: 40px;
+        border: solid 5px gray;
+        background: var(--color-theme-white);
+        transform: rotate(-8deg);
+        z-index: 1;
+        transition: all 300ms ease-in-out;
+        position: relative;
+        max-width: 450px;
+
+        img {
+            border: solid 5px gray;
+        }
+
+        /* TODO: replace with "active" class */
+        &.active {
+            z-index: 2;
+            transform: rotate(0) !important;
+        }
+
+        &.next-active-slide {
+            transform: rotate(12deg);
+            z-index: 1;
+        }
+
+        &.animate-next {
+            animation-name: nextSlide;
+            animation-duration: 2s;
+        }
+
+        &.animate-prev {
+            animation-name: prevSlide;
+            animation-duration: 2s;
+        }
+
+
+    }
+
+    .image-carousel-slide-text-wrapper {
+        padding-bottom: 40px;
+    }
+
+    .carousel-button {
+        width: fit-content;
+        height: fit-content;
+        padding: 20px;
+        align-self: center;
+    }
+
+
+}

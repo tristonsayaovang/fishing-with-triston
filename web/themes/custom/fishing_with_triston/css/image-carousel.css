@@ -49,8 +49,8 @@
     display: grid;
     grid-template-areas: 'imageCarouselContainer';
     padding-bottom: 40px;
-    
-    & > * {
+
+    &>* {
         grid-area: imageCarouselContainer;
     }
 
@@ -59,7 +59,7 @@
     }
 
     .background {
-        background: var(--color-theme-blue); 
+        background: var(--color-theme-blue);
         width: 100%;
         height: 85%;
         align-self: flex-end;
@@ -69,7 +69,7 @@
 
     .image-carousel-wrapper {
         display: grid;
-        grid-template-columns: 1.5fr 2fr;
+        grid-template-columns: 2fr 1.5fr;
         align-items: center;
         gap: 40px;
     }
@@ -79,6 +79,7 @@
         padding: 40px 25px;
         margin-top: 10%;
     }
+
     .carousel-photos-container {
         display: grid;
         grid-template-columns: 100px 2fr 100px;
@@ -96,28 +97,29 @@
 
     .image-carousel-slide {
         padding: 40px;
-        border: solid 5px gray;
+        border: solid 3px var(--color-theme-gray);
+        border-radius: 2px;
         background: var(--color-theme-white);
         transform: rotate(-8deg);
         z-index: 1;
-        transition: all 300ms ease-in-out;
+        transition: transform 300ms ease-in-out;
         position: relative;
         max-width: 450px;
 
         img {
-            border: solid 5px gray;
+            border: solid 3px var(--color-theme-gray);
         }
 
         /* TODO: replace with "active" class */
         &.active {
             z-index: 2;
             transform: rotate(0) !important;
-            
+
         }
 
         &.next-active-slide {
             transform: rotate(12deg);
-            z-index: 1;
+            z-index: 0;
         }
 
         &.animate-next {
@@ -144,8 +146,22 @@
     .carousel-button {
         width: fit-content;
         height: fit-content;
-        padding: 20px;
+        padding: 10px 20px;
         align-self: center;
+        font-size: 30px;
+        background: linear-gradient(0deg, rgba(0, 0, 0, 0.35) 0%, rgba(255, 255, 255, 0) 80%);
+        border: solid 1px var(--color-theme-white);
+        transition: all 250ms ease;
+        color: var(--color-theme-white);
+        font-weight: 600;
+        border-radius: 50px;
+
+        &:hover {
+            filter: brightness(0.9);
+            background: linear-gradient(0deg, rgba(0, 0, 0, 0.6) 0%, rgba(255, 255, 255, 0) 80%);
+            cursor: pointer;
+
+        }
     }
 
 

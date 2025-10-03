@@ -74,7 +74,7 @@
 	</div>
 </div>
 
-<div class="location-description-and-address padding-block-standard">
+<div class="location-description-and-address margin-block-standard">
 
 	<div class="region">
 
@@ -102,15 +102,11 @@
 		<div class="background"></div>
 		<div class="region">
 			<div class="image-carousel-wrapper">
-				<div class="image-carousel-copy-container">
-					{% if node.field_image_carousel_copy.value %}
-						{{node.field_image_carousel_copy.processed }}
-					{% endif %}
-				</div>
+			
 
 				<div class="carousel-photos-container">
 					<button class="prev carousel-button" data-role="prevButton">
-						Previous
+						<
 					</button>
 
 					<div class="carousel-slides-container" data-role="imageCarousel" data-current="0">
@@ -136,8 +132,14 @@
 
 					</div>
 					<button class="next carousel-button" data-role="nextButton">
-						Next
+						>
 					</button>
+				</div>
+
+					<div class="image-carousel-copy-container">
+					{% if node.field_image_carousel_copy.value %}
+						{{node.field_image_carousel_copy.processed }}
+					{% endif %}
 				</div>
 
 			</div>

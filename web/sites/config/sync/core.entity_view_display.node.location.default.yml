@@ -10,7 +10,12 @@ dependencies:
     - field.field.node.location.field_hero_image
     - field.field.node.location.field_image_carousel
     - field.field.node.location.field_image_carousel_copy
+    - field.field.node.location.field_location_fall_lures
+    - field.field.node.location.field_location_spring_lures
+    - field.field.node.location.field_location_summer_lures
     - field.field.node.location.field_map_image
+    - field.field.node.location.field_recommended_lures_copy
+    - field.field.node.location.field_tips_and_tricks
     - node.type.location
   module:
     - entity_reference_revisions
@@ -75,6 +80,33 @@ content:
     third_party_settings: {  }
     weight: 107
     region: content
+  field_location_fall_lures:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 112
+    region: content
+  field_location_spring_lures:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 110
+    region: content
+  field_location_summer_lures:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 111
+    region: content
   field_map_image:
     type: entity_reference_entity_view
     label: above
@@ -83,6 +115,20 @@ content:
       link: false
     third_party_settings: {  }
     weight: 104
+    region: content
+  field_recommended_lures_copy:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 109
+    region: content
+  field_tips_and_tricks:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 113
     region: content
   links:
     settings: {  }

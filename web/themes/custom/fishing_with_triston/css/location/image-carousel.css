@@ -166,3 +166,21 @@
 
 
 }
+
+@media screen and (max-width: 1550px) {
+    :where(.image-carousel-container) {
+        .image-carousel-wrapper {
+            grid-template-columns: 1fr;
+        }
+
+        .carousel-slides-container {
+            place-content: center;
+        }
+
+        .image-carousel-copy-container{
+            margin-top: 0;
+        }
+    }
+
+
+}

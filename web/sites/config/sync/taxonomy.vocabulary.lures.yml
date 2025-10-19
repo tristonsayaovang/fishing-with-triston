@@ -1,0 +1,9 @@
+uuid: a5d6cb62-ebbb-4dfa-b7fd-5ae62d117e95
+langcode: en
+status: true
+dependencies: {  }
+name: Lures
+vid: lures
+description: null
+weight: 0
+new_revision: false

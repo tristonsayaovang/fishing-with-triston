@@ -94,6 +94,15 @@ function media_contextual_crop_field_formatter_entity_update(EntityInterface $en
     $field_value = $entity->get($field_name)->getValue();
     $nb = count($field_value);
 
+    // If the media on the field was removed, then delete the crops and
+    // don't process further.
+    if ($nb === 0) {
+      foreach ($crops as $crop) {
+        $crop->delete();
+      }
+      return;
+    }
+
     // For each crop.
     foreach ($crops as $crop) {
       // Get delta of the context.
@@ -107,11 +116,18 @@ function media_contextual_crop_field_formatter_entity_update(EntityInterface $en
         return;
       }
 
-      // Get image source.
-      $source_field_target = $media->getSource()->getSourceFieldValue($media);
+      // If crop context delta > field delta.
+      if ($context_delta >= $nb) {
+        // Delete CROP.
+        $crop->delete();
+      }
 
-      // If crop context delta > field delta OR media has change on delta.
-      if ($context_delta >= $nb || $source_field_target != $crop->get('entity_id')->getString()) {
+      // Get image source.
+      $source = $media->getSource();
+      $source_field_type = $source->getSourceFieldDefinition($media->bundle->entity)->getType();
+      $source_field_target = $source->getSourceFieldValue($media);
+      // If we are using an image field and media has change on delta.
+      if ($source_field_type == "image" && $source_field_target != $crop->get('entity_id')->getString()) {
         // Delete CROP.
         $crop->delete();
       }

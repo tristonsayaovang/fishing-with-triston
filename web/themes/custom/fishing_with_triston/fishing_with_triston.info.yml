@@ -9,3 +9,5 @@ regions:
   header: 'Header'
   content: 'Content'
   footer: 'Footer'
+dependencies:
+  - fishing_with_triston_utility

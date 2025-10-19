@@ -9,6 +9,7 @@ dependencies:
   module:
     - comment
     - contextual
+    - crop
     - file
     - node
     - path
@@ -27,21 +28,27 @@ permissions:
   - 'access contextual links'
   - 'access files overview'
   - 'access toolbar'
+  - 'administer crop'
+  - 'administer crop types'
   - 'administer url aliases'
   - 'create article content'
   - 'create page content'
   - 'create terms in tags'
   - 'create url aliases'
+  - 'delete any page content'
   - 'delete article revisions'
   - 'delete own article content'
   - 'delete own files'
   - 'delete own page content'
   - 'delete page revisions'
+  - 'edit any page content'
   - 'edit own article content'
   - 'edit own comments'
   - 'edit own page content'
   - 'edit terms in tags'
   - 'revert all revisions'
+  - 'revert page revisions'
   - 'view all revisions'
   - 'view own unpublished content'
+  - 'view page revisions'
   - 'view the administration theme'

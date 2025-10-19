@@ -1,0 +1,53 @@
+uuid: 672cb3e4-b264-4cbe-8371-535622c48d22
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.lures.field_lure_image
+    - taxonomy.vocabulary.lures
+  module:
+    - media_library
+    - path
+    - text
+id: taxonomy_term.lures.default
+targetEntityType: taxonomy_term
+bundle: lures
+mode: default
+content:
+  description:
+    type: text_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_lure_image:
+    type: media_library_widget
+    weight: 101
+    region: content
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+  name:
+    type: string_textfield
+    weight: -5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 30
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    weight: 100
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+hidden: {  }

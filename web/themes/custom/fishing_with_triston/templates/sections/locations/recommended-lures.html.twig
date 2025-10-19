@@ -1,0 +1,79 @@
+{% if node is  defined %}
+
+	<section class="recommended-lures-container margin-block-standard">
+		<div class="region">
+			<div class="recommended-lures-wrapper">
+				<div class="recommended-lures-copy">
+					{{ node.field_recommended_lures_copy.processed }}
+				</div>
+
+
+				<div class="seasonal-lures-container" data-role="seasonsTabs" data-active-tab="spring">
+
+					<div class="season-tabs-container">
+						<div class="season-tab active" data-role="tab" data-season="spring">
+							<h3>Spring</h3>
+						</div>
+
+						<div class="season-tab" data-role="tab" data-season="summer">
+							<h3>Summer</h3>
+						</div>
+						<div class="season-tab" data-role="tab" data-season="fall">
+							<h3>Fall</h3>
+						</div>
+					</div>
+
+
+					<div class="lures-content-container">
+
+						<div class="spring-lures lures-container active" data-role="luresContainer" data-season="spring">
+
+							{% for lure in node.field_location_spring_lures %}
+								<div class="lure">
+
+									{{ renderMediaImage(lure.entity.field_lure.entity.field_lure_image, 'location_lure') }}
+									<a class="lure-name" href="{{ path('entity.taxonomy_term.canonical', {'taxonomy_term': lure.entity.field_lure.entity.id()}) }}">
+										{{ lure.entity.field_lure.entity.name.value }}
+									</a>
+									{{ lure.entity.field_lure_optional_copy.processed}}
+
+								</div>
+							{% endfor %}
+						</div>
+
+						<div class="summer-lures lures-container" data-role="luresContainer" data-season="summer">
+							{% for lure in node.field_location_summer_lures %}
+								<div class="lure">
+
+									{{ renderMediaImage(lure.entity.field_lure.entity.field_lure_image, 'location_lure') }}
+									<a class="lure-name" href="{{ path('entity.taxonomy_term.canonical', {'taxonomy_term': lure.entity.field_lure.entity.id()}) }}">
+										{{ lure.entity.field_lure.entity.name.value }}
+									</a>
+									{{ lure.entity.field_lure_optional_copy.processed}}
+
+								</div>
+							{% endfor %}
+						</div>
+
+						<div class="fall-lures lures-container" data-role="luresContainer" data-season="fall">
+							{% for lure in node.field_location_fall_lures %}
+								<div class="lure">
+
+									{{ renderMediaImage(lure.entity.field_lure.entity.field_lure_image, 'location_lure') }}
+									<a class="lure-name" href="{{ path('entity.taxonomy_term.canonical', {'taxonomy_term': lure.entity.field_lure.entity.id()}) }}">
+										{{ lure.entity.field_lure.entity.name.value }}
+									</a>
+									{{ lure.entity.field_lure_optional_copy.processed}}
+
+								</div>
+							{% endfor %}
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</section>
+
+{% endif %}

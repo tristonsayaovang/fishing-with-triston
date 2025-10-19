@@ -10,9 +10,6 @@
         "drupal/media_contextual_crop": "~2.0",
         "drupal/core": "^10 || ^11"
     },
-    "require-dev": {
-        "drupal/advanced_help": "^1"
-    },
     "extra": {
         "enable-patching": true,
         "patches": {

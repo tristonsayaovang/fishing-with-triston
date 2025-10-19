@@ -1,0 +1,10 @@
+uuid: 81cc573c-fae0-4988-b073-c7ded7e66879
+langcode: en
+status: true
+dependencies: {  }
+id: location_lure_and_copy
+label: 'Location Lure and Copy'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

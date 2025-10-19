@@ -1,0 +1,17 @@
+uuid: 7dbf8393-a5b2-4888-833b-fe64f8d097c7
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: home_hero_focal_point
+label: 'Home Hero Focal Point'
+effects:
+  737c5573-8911-4d5d-b424-30bf9becb26e:
+    uuid: 737c5573-8911-4d5d-b424-30bf9becb26e
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 1980
+      height: 600
+      crop_type: focal_point

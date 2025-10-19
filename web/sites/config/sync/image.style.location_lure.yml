@@ -1,0 +1,17 @@
+uuid: 76d422af-af6f-445b-9aa0-c24ada2d2e5d
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: location_lure
+label: 'Location Lure'
+effects:
+  2cbbd7e7-2b77-4214-8251-30ee514349f3:
+    uuid: 2cbbd7e7-2b77-4214-8251-30ee514349f3
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 250
+      height: 96
+      crop_type: focal_point

@@ -1,0 +1,32 @@
+uuid: 0ca73c3a-65bf-45e1-95a3-41219aa89298
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.location_lure_and_copy.field_lure
+    - field.field.paragraph.location_lure_and_copy.field_lure_optional_copy
+    - paragraphs.paragraphs_type.location_lure_and_copy
+  module:
+    - text
+id: paragraph.location_lure_and_copy.default
+targetEntityType: paragraph
+bundle: location_lure_and_copy
+mode: default
+content:
+  field_lure:
+    type: options_buttons
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_lure_optional_copy:
+    type: text_textarea
+    weight: 1
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

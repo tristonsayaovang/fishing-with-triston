@@ -1,0 +1,37 @@
+uuid: 617a777f-eced-47ae-876b-2660526171f5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_location_spring_lures
+    - node.type.location
+    - paragraphs.paragraphs_type.location_lure_and_copy
+  module:
+    - entity_reference_revisions
+id: node.location.field_location_spring_lures
+field_name: field_location_spring_lures
+entity_type: node
+bundle: location
+label: 'Location Spring Lures'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      location_lure_and_copy: location_lure_and_copy
+    negate: 0
+    target_bundles_drag_drop:
+      image_carousel_slide:
+        weight: 4
+        enabled: false
+      location_lure_and_copy:
+        weight: 5
+        enabled: true
+      seasonal_lures:
+        weight: 6
+        enabled: false
+field_type: entity_reference_revisions

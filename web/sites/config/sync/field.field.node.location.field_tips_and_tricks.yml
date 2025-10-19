@@ -1,0 +1,24 @@
+uuid: 544ee34f-60b4-400b-81ab-19de40de7068
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_tips_and_tricks
+    - filter.format.full_html
+    - node.type.location
+  module:
+    - text
+id: node.location.field_tips_and_tricks
+field_name: field_tips_and_tricks
+entity_type: node
+bundle: location
+label: 'Tips and Tricks'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - full_html
+field_type: text_long

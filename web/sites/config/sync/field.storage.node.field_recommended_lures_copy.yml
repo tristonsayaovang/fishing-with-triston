@@ -1,0 +1,19 @@
+uuid: 076b7016-4295-4136-ab73-f9da6a3d2ad7
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - text
+id: node.field_recommended_lures_copy
+field_name: field_recommended_lures_copy
+entity_type: node
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

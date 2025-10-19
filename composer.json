@@ -23,7 +23,7 @@
         "drupal/field_group": "^4.0",
         "drupal/focal_point": "^2.1",
         "drupal/media_contextual_crop": "^2.1",
-        "drupal/media_contextual_crop_field_formatter": "^2.0",
+        "drupal/media_contextual_crop_field_formatter": "2.0.x-dev@dev",
         "drupal/media_contextual_crop_fp_adapter": "^2.0",
         "drupal/media_directories": "^2.2@beta",
         "drupal/media_library_media_modify": "^2.0@beta",

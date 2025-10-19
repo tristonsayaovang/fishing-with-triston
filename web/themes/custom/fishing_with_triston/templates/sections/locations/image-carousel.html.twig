@@ -1,0 +1,47 @@
+	<section class="image-carousel-container margin-block-standard" data-role="imageCarouselContainer">
+		<div class="background"></div>
+		<div class="region">
+			<div class="image-carousel-wrapper">
+			
+
+				<div class="carousel-photos-container">
+					<button class="prev carousel-button" data-role="prevButton">
+						<
+					</button>
+
+					<div class="carousel-slides-container" data-role="imageCarousel" data-current="0">
+						{% for slide in node.field_image_carousel %}
+							{% set index = ( index | default(0) ) %}
+							<div class="image-carousel-slide
+																							{{index is same as 0 ? 'active' : '' }}
+																							{{index is same as 1 ? 'next-active-slide' : '' }}
+																							" data-index="{{index}}" data-role="carouselSlide">
+								{% if slide.entity.field_image_carousel_image.entity.field_media_image.entity %}
+									<img src="{{ slide.entity.field_image_carousel_image.entity.field_media_image.entity.uri.value|image_style('image_carousel') }}" alt="{{ slide.entity.field_image_carousel_image.entity.field_media_image.entity.field_media_image.alt }}" loading="lazy" data-role="carouselImage"/>
+								{% endif %}
+
+
+								<div class="image-carousel-slide-text-wrapper">
+									{% if slide.entity.field_carousel_slide_copy.value %}
+										{{slide.entity.field_carousel_slide_copy.processed}}
+									{% endif %}
+								</div>
+							</div>
+							{% set index = index + 1 %}
+						{% endfor %}
+
+					</div>
+					<button class="next carousel-button" data-role="nextButton">
+						>
+					</button>
+				</div>
+
+					<div class="image-carousel-copy-container">
+					{% if node.field_image_carousel_copy.value %}
+						{{node.field_image_carousel_copy.processed }}
+					{% endif %}
+				</div>
+
+			</div>
+		</div>
+	</section>

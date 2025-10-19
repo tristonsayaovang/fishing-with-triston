@@ -1,0 +1,6 @@
+services:
+  fishing_with_triston_utility.twig_extension:
+    class: Drupal\fishing_with_triston_utility\Twig\FishingWithTristonTwigExtension
+    arguments: ['@file_url_generator']
+    tags:
+      - { name: twig.extension }

@@ -5,7 +5,8 @@ use Drupal\Core\Render\AttachmentsInterface;
 /**
  * Implements hook_page_attachments_alter().
  */
-function fishing_with_triston_page_attachments_alter(array &$attachments) {
+function fishing_with_triston_page_attachments_alter(array &$attachments)
+{
   // Remove all Olivero CSS/JS.
   $libraries_to_remove = [
     'olivero/global-styling',

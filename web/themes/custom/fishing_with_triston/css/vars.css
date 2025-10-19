@@ -5,7 +5,8 @@
     --color-theme-anchor: #117E9C;
     --color-theme-white: #ffffff;
     --color-theme-blue: #0E2B5D;
-    --color-theme-gray: #444447
+    --color-theme-gray: #444447;
+    --color-theme-light-gray: #dcdee6;
 }
 
 :root {

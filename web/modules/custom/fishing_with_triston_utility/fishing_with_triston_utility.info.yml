@@ -1,0 +1,6 @@
+name: Fishing with Triston Utility
+description: 'Utility for Fishing with Triston theme which provides helper methods'
+core_version_requirement: ' ^10 || ^11'
+package: Custom
+type: module
+dependencies: []

@@ -5,8 +5,11 @@ web/sites/*/settings*.php
 web/sites/*/services*.yml
 
 # Ignore paths that contain user-generated content.
-web/sites/*/files
 web/sites/*/private
+web/sites/*/files/*
+
+# We want to track the "defaults" directory so that we can apply image styles to default images.
+!web/sites/default/files/defaults/
 
 # Ignore multi-site test environment.
 web/sites/simpletest

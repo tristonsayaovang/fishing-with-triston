@@ -1,0 +1,15 @@
+<section class="location-species margin-block-short">
+	<div class="region">
+		<h2>Fish Species</h2>
+		{% if node.field_fish_species is not empty %}
+			<div class="fish-species-list">
+				<ul>
+					{% for item in node.field_fish_species %}
+						<li>
+						<a href="{{ path('entity.taxonomy_term.canonical', {'taxonomy_term': item.entity.id()}) }}" >{{ item.entity.name.value }}</a></li>
+					{% endfor %}
+				</ul>
+			</div>
+		{% endif %}
+	</div>
+</section>

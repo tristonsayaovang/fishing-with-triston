@@ -1,0 +1,25 @@
+section.location-species {
+    :where(.fish-species-list > ul) {
+        display: flex;
+        flex-flow: row wrap;
+        gap: 20px;
+        list-style: none;
+        padding-left: 0;
+
+        & > li {
+            text-indent: 0;
+            & > a {
+                display: inline-block;
+                padding: 10px 15px;
+                background: var(--color-theme-anchor);
+                color: var(--color-theme-white);
+                text-decoration: none;
+
+                &:hover {
+                    filter: brightness(0.7);
+                }
+            }
+        }
+        
+    }
+}

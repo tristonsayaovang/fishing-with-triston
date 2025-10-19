@@ -9,8 +9,11 @@ global-styling:
       css/main.css: {}
       css/region.css: {}
       css/hero.css: {}
-      css/location.css: {}
-      css/image-carousel.css: {}
+      css/location/location.css: {}
+      css/location/image-carousel.css: {}
+      css/location/recommended-lures.css: {}
+      css/location/species.css: {}
   js:
     js/script.js: {}
     js/image-carousel.js: {}
+    js/seasonal-tabs.js: {}

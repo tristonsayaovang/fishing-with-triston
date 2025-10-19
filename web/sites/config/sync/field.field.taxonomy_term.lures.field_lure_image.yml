@@ -1,0 +1,29 @@
+uuid: 4ed823b7-3d2e-44a7-b6c5-13c17982e6f7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_lure_image
+    - media.type.image
+    - taxonomy.vocabulary.lures
+id: taxonomy_term.lures.field_lure_image
+field_name: field_lure_image
+entity_type: taxonomy_term
+bundle: lures
+label: 'Lure Image'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

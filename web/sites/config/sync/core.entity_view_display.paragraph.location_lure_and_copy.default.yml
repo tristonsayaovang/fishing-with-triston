@@ -1,0 +1,31 @@
+uuid: 561f7d7b-1abf-41a2-bd9d-087c80a97168
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.location_lure_and_copy.field_lure
+    - field.field.paragraph.location_lure_and_copy.field_lure_optional_copy
+    - paragraphs.paragraphs_type.location_lure_and_copy
+  module:
+    - text
+id: paragraph.location_lure_and_copy.default
+targetEntityType: paragraph
+bundle: location_lure_and_copy
+mode: default
+content:
+  field_lure:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_lure_optional_copy:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden: {  }

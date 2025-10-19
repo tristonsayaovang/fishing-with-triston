@@ -1,0 +1,19 @@
+uuid: 6de5de2e-8196-428a-ad5e-6635483e06f1
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - text
+id: node.field_tips_and_tricks
+field_name: field_tips_and_tricks
+entity_type: node
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

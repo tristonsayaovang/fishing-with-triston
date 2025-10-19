@@ -1,10 +1,11 @@
 uuid: b9e9e704-7acf-4426-a98d-f59720fc0540
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.page.body
+    - field.field.node.page.field_home_hero
     - node.type.page
   module:
     - text
@@ -27,4 +28,5 @@ content:
   links:
     weight: 101
     region: content
-hidden: {  }
+hidden:
+  field_home_hero: true

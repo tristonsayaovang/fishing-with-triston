@@ -1,0 +1,29 @@
+uuid: 0aa5887a-91e9-4ade-8281-6f4cb0daf225
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_lure
+    - paragraphs.paragraphs_type.location_lure_and_copy
+    - taxonomy.vocabulary.lures
+id: paragraph.location_lure_and_copy.field_lure
+field_name: field_lure
+entity_type: paragraph
+bundle: location_lure_and_copy
+label: Lure
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      lures: lures
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: fish_species
+field_type: entity_reference

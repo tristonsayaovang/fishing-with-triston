@@ -4,8 +4,10 @@ status: true
 dependencies:
   config:
     - field.field.node.page.body
+    - field.field.node.page.field_home_hero
     - node.type.page
   module:
+    - media_library_media_modify
     - path
     - text
 _core:
@@ -30,6 +32,18 @@ content:
     weight: 10
     region: content
     settings: {  }
+    third_party_settings: {  }
+  field_home_hero:
+    type: media_library_media_modify_widget
+    weight: 121
+    region: content
+    settings:
+      media_types: {  }
+      form_mode: media_library
+      check_selected: false
+      replace_checkbox_by_order_indicator: false
+      multi_edit_on_create: false
+      no_edit_on_create: false
     third_party_settings: {  }
   path:
     type: path

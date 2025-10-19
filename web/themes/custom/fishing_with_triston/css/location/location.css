@@ -1,15 +1,19 @@
-:where(.location-description-and-address-wrapper) {
-    display: grid;
-    grid-template-columns: 3fr 1fr;
-    gap: 40px;
+:where(.location-container) {
 
-     .location-address {
-        & > img {
-            max-height: 200px;
-            width: auto;
+    :where(.location-description-and-address-wrapper) {
+        display: grid;
+        grid-template-columns: 3fr 1fr;
+        gap: 40px;
+
+        .location-address {
+            &>img {
+                max-height: 200px;
+                width: auto;
+            }
         }
-     }
+    }
 }
+
 
 @media screen and (max-width: 900px) {
     .location-description-and-address-wrapper {

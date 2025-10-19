@@ -2,6 +2,12 @@
 
     border-bottom: solid 10px var(--color-theme-blue);
 
+    .hero-image {
+        min-height: 350px;
+        object-fit: cover;
+        width: 100%;
+    }
+
     .hero-wrapper {
         display: grid;
         grid-template-areas: 'hero';

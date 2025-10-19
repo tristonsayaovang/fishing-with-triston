@@ -17,6 +17,19 @@
         justify-content: center;
     }
 
+    :where(.mobile-navigation) {
+        display: none;
+
+        .mobile-menu-button {
+            background: none;
+            border: none;
+
+            &:hover {
+                cursor: pointer;
+            }
+        }
+    }
+
     #block-fishing-with-triston-main-menu {
 
         ul:not(.contextual-links) {
@@ -40,12 +53,37 @@
 
 }
 
+@media screen and (max-width: 1450px) {
+    :where(.site-header) {
+        padding-inline: 40px;
+    }
+}
+
 @media screen and (max-width: 900px) {
     :where(.site-header) {
+
+        .header-wrapper {
+            gap: 10px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            max-width: 125px;
+        }
+
         .main-navigation {
             display: none;
         }
 
-        
+        :where(.mobile-navigation) {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+        }
     }
+
 }

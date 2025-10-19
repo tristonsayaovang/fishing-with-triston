@@ -1,54 +1,58 @@
-
-<div class="hero">
-	<div class="hero-wrapper">
-		<div class="overlay"></div>
-		<img src="{{ node.field_hero_image.entity.field_media_image.entity.uri.value|image_style('location_hero') }}" alt="{{ node.field_hero_image.entity.field_media_image.alt }}">
-		<div class="region location-title-container">
-			<div class="location-title">
-				<h1>{{label}}</h1>
-				<div class="clip"></div>
+<div class="location-container">
+	<div class="hero">
+		<div class="hero-wrapper">
+			<div class="overlay"></div>
+			<img class="hero-image" src="{{ node.field_hero_image.entity.field_media_image.entity.uri.value|image_style('location_hero') }}" alt="{{ node.field_hero_image.entity.field_media_image.alt }}">
+			<div class="region location-title-container">
+				<div class="location-title">
+					<h1>{{label}}</h1>
+					<div class="clip"></div>
+				</div>
 			</div>
 		</div>
 	</div>
-</div>
 
-<section class="location-description-and-address margin-block-standard">
+	<section class="location-description-and-address margin-block-standard">
 
-	<div class="region">
-
-		<div class="location-description-and-address-wrapper">
-			<div class="location-description">
-				{{ node.field_description.processed }}
-			</div>
-
-			<div class="location-address">
-				{% if node.field_map_image.entity.field_media_image.entity.uri.value %}
-					<img src="{{ node.field_map_image.entity.field_media_image.entity.uri.value|image_style('map_image') }}" alt="{{ node.field_map_image.entity.field_media_image.alt }}" loading="lazy"/>
-				{% endif %}
-				<a href="http://maps.google.com/?q={{node.field_address.value}}" target="_blank">{{node.field_address.value}}</a>
-			</div>
-
-		</div>
-
-	</div>
-</div>
-
-
-{% if node.field_image_carousel is iterable %}
-	{% include '@fishing_with_triston/sections/locations/image-carousel.html.twig' with {node: node} %}
-{% endif %}
-
-{% if node.field_tips_and_tricks.value %}
-	<section class="tips-and-tricks-container margin-block-standard">
 		<div class="region">
-			{{ node.field_tips_and_tricks.processed }}
+
+			<div class="location-description-and-address-wrapper">
+				<div class="location-description">
+					{{ node.field_description.processed }}
+				</div>
+
+				<div class="location-address">
+					{% if node.field_map_image.entity.field_media_image.entity.uri.value %}
+						<img src="{{ node.field_map_image.entity.field_media_image.entity.uri.value|image_style('map_image') }}" alt="{{ node.field_map_image.entity.field_media_image.alt }}" loading="lazy"/>
+					{% endif %}
+					<a href="http://maps.google.com/?q={{node.field_address.value}}" target="_blank">{{node.field_address.value}}</a>
+				</div>
+
+			</div>
+
 		</div>
 	</div>
-{% endif %}
-{% if hasRecommendedLures(node) %}
-	{% include '@fishing_with_triston/sections/locations/recommended-lures.html.twig' with {node: node} %}
-{% endif %}
 
-{% if node.field_fish_species is not empty %}
-	{% include '@fishing_with_triston/sections/locations/species.html.twig' with {node: node} %}
-{% endif %}
+
+	{% if node.field_image_carousel is iterable %}
+		{% include '@fishing_with_triston/sections/locations/image-carousel.html.twig' with {node: node} %}
+	{% endif %}
+
+	{% if node.field_tips_and_tricks.value %}
+		<section class="tips-and-tricks-container margin-block-standard">
+			<div class="region">
+				{{ node.field_tips_and_tricks.processed }}
+			</div>
+		</div>
+	{% endif %}
+	{% if hasRecommendedLures(node) %}
+		{% include '@fishing_with_triston/sections/locations/recommended-lures.html.twig' with {node: node} %}
+	{% endif %}
+
+	{% if node.field_fish_species is not empty %}
+		{% include '@fishing_with_triston/sections/locations/species.html.twig' with {node: node} %}
+	{% endif %}
+
+
+</div>
+s

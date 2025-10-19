@@ -19,7 +19,7 @@
         border-top-right-radius: 5px;
         transition: transform 250ms ease;
 
-          &:hover {
+        &:hover {
             cursor: pointer;
 
             &:not(.active) {
@@ -37,7 +37,7 @@
 
         }
 
-      
+
     }
 
     .seasonal-lures-container {
@@ -118,4 +118,33 @@
     }
 
 
+}
+
+@media screen and (max-width: 900px) {
+    :where(.recommended-lures-container) {
+
+        .seasonal-lures-container {
+            .lures-container {
+                grid-template-columns: 1fr;
+
+                .lure>img {
+                    max-width: 260px;
+                    width: 100%;
+                    margin-inline: auto;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 500px) {
+    :where(.recommended-lures-container) {
+         .season-tab {
+            min-width: 50px;
+            
+            & > h3 {
+                font-size: 16px;
+            }
+         }
+    }
 }

@@ -41,3 +41,13 @@
         }
     }
 }
+
+@media screen and (max-width: 900px){
+    :where(.hero) {
+        .location-title {
+            & > h1 {
+                font-size: 36px;
+            }
+        }
+    }
+}

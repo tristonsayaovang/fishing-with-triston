@@ -168,7 +168,7 @@
 }
 
 @media screen and (max-width: 1550px) {
-    :where(.image-carousel-container) {
+    .image-carousel-container {
         .image-carousel-wrapper {
             grid-template-columns: 1fr;
         }
@@ -179,6 +179,19 @@
 
         .image-carousel-copy-container{
             margin-top: 0;
+        }
+
+        .carousel-photos-container {
+            grid-template-columns: 1fr;
+            grid-template-rows: auto 100px;
+
+            & > button {
+                grid-row: 2;
+            }
+            .carousel-slides-container {
+                grid-row: 1;
+            }
+
         }
     }
 

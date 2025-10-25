@@ -13,18 +13,27 @@
  */
 #}
 
-<header class="site-header">
+<header class="site-header" data-role="siteHeader">
 	<div class="header-wrapper region">
 		<div class="logo">
 			<a href="{{ url('<front>') }}"><img src="/themes/custom/fishing_with_triston/images/fishing-with-triston-logo.png" alt="Fishing with Triston Logo"></a>
 		</div>
-		<div class="main-navigation">
+		<div class="main-navigation" data-role="mainNav">
 			{{content}}
 		</div>
 		<div class="mobile-navigation">
 			<button class="mobile-menu-button" data-role="mobileMenuButton">
 			{{  source('themes/custom/fishing_with_triston/images/mobile-menu.svg') }}
 			</button>
+			<dialog data-role="mobileNavDialog">
+			<button class="close-modal-button" data-role="closeModal">X</button>
+				<div class="mobile-nav-wrapper" data-role="mobileNavWrapper">
+					<nav class="mobile-nav" data-role="mobileNav">
+						<ul class="mobile-nav-list" data-role="mobileNavList">
+						</ul>
+					</nav>
+				</div>
+			</dialog>
 		</div>
 	</div>
 </header>

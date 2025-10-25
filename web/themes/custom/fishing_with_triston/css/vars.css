@@ -14,6 +14,9 @@
     --content-width-medium: 1200px;
     --content-width-small: 950px;
 }
+:root {
+    --mobile-padding: 6vw;
+}
 
 :root {
     --font-family-main: 'Lexend', sans-serif;

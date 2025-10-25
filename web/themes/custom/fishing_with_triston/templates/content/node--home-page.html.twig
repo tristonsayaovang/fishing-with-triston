@@ -1,0 +1,14 @@
+<div class="main-content">
+	<div class="hero home">
+		<div class="home-hero-wrapper region">
+
+			<div class="home-hero-content">
+				{{ node.field_hero_copy.processed }}
+			</div>
+			<img class="hero-image home" src="{{ node.field_home_hero_image.entity.field_media_image.entity.uri.value|image_style('home_hero_focal_point') }}" alt="{{ node.field_home_hero_image.entity.field_media_image.alt }}"/>
+
+
+		</div>
+	</div>
+
+</div>

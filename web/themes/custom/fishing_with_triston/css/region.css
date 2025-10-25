@@ -10,3 +10,9 @@
         padding-inline: 40px;
     }
 }
+
+@media screen and (max-width: 500px) {
+    :where(section .region) {
+        padding-inline: var(--mobile-padding);
+    }
+}

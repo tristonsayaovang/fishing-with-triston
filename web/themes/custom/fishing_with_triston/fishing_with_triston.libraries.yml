@@ -8,6 +8,7 @@ global-styling:
       css/header.css: {}
       css/main.css: {}
       css/region.css: {}
+      css/home-hero.css: {}
       css/hero.css: {}
       css/location/location.css: {}
       css/location/image-carousel.css: {}
@@ -17,3 +18,4 @@ global-styling:
     js/script.js: {}
     js/image-carousel.js: {}
     js/seasonal-tabs.js: {}
+    js/mobile-menu.js: {}

@@ -1,0 +1,21 @@
+:where(.hero.home) {
+    background-color: var(--color-theme-blue);
+    background-image: url("../images/texture.webp");
+    background-blend-mode: multiply;
+
+    .home-hero-wrapper {
+        display: grid;
+        grid-template-columns: 1fr 650px;
+        background: var(--color-theme-white);
+
+
+        .home-hero-content {
+            background: var(--color-theme-white);
+            padding: 40px;
+            position: relative;
+            z-index: 1;
+            max-width: fit-content;
+            max-height: fit-content;
+        }
+    }
+}

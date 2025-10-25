@@ -27,6 +27,10 @@
             &:hover {
                 cursor: pointer;
             }
+
+            & > svg {
+                width: 50px;
+            }
         }
     }
 
@@ -72,7 +76,7 @@
         }
 
         .logo img {
-            max-width: 125px;
+            max-width: 150px;
         }
 
         .main-navigation {
@@ -86,4 +90,10 @@
         }
     }
 
+}
+
+@media screen and (max-width: 500px) {
+    :where(.site-header) {
+        padding-inline: var(--mobile-padding);
+    }
 }

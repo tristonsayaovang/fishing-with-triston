@@ -5,17 +5,40 @@
 
     .home-hero-wrapper {
         display: grid;
-        grid-template-columns: 1fr 650px;
-        background: var(--color-theme-white);
-
+        grid-template-columns: 1fr auto;
+        align-items: center;
 
         .home-hero-content {
             background: var(--color-theme-white);
             padding: 40px;
+            margin-inline: 40px;
+            min-width: 350px;
             position: relative;
             z-index: 1;
             max-width: fit-content;
             max-height: fit-content;
+        }
+
+        .hero-image.home {
+            max-width: 650px;
+            width: 100%;
+        }
+    }
+}
+
+@media screen and (max-width: 950px) {
+    :where(.hero.home) {
+        .home-hero-wrapper {
+            display: flex;
+            flex-flow: column;
+
+            .home-hero-content {
+                order: 2;
+                transform: translateY(-50%);
+            }
+
+
+
         }
     }
 }

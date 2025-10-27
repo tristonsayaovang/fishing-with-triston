@@ -1,0 +1,7 @@
+<div class="single-blog">
+
+	<a href="{{ path('entity.node.canonical', {'node': row._entity.id })}}" class="article-title">{{ row._entity.title.value }}</a>
+	<div class="blog-content">
+		{{ fields.body.content }}
+	</div>
+</div>

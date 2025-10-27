@@ -1,0 +1,12 @@
+<div class="latest-blogs-block">
+	<div class="region">
+		<div class="latest-blogs-block-title">
+			<h2>Take a look at my latest blogs!</h2>
+		</div>
+		<div class="latest-blogs-wrapper">
+			{% for row in rows %}
+				{{row.content}}
+			{% endfor %}
+		</div>
+	</div>
+</div>

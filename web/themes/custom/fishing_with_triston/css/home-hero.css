@@ -2,6 +2,7 @@
     background-color: var(--color-theme-blue);
     background-image: url("../images/texture.webp");
     background-blend-mode: multiply;
+    border-bottom: none !important;
 
     .home-hero-wrapper {
         display: grid;
@@ -17,6 +18,8 @@
             z-index: 1;
             max-width: fit-content;
             max-height: fit-content;
+            clip-path: polygon(92% 0, 100% 15%, 100% 100%, 0 100%, 0 0);
+
         }
 
         .hero-image.home {

@@ -1,18 +1,19 @@
-uuid: b252cd70-13bb-46b7-b8c2-78699446e331
+uuid: 79c245ab-f6ba-48f1-b905-6637001b9e9d
 langcode: en
 status: true
 dependencies:
   module:
+    - media
     - node
-id: node.field_fish_species
-field_name: field_fish_species
+id: node.field_lure_image
+field_name: field_lure_image
 entity_type: node
 type: entity_reference
 settings:
-  target_type: node
+  target_type: media
 module: core
 locked: false
-cardinality: -1
+cardinality: 1
 translatable: true
 indexes: {  }
 persist_with_no_fields: false

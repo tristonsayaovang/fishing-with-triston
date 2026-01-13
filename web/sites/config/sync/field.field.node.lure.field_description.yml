@@ -1,0 +1,24 @@
+uuid: 70472af9-a5da-480e-96d0-0527e84c4244
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_description
+    - filter.format.full_html
+    - node.type.lure
+  module:
+    - text
+id: node.lure.field_description
+field_name: field_description
+entity_type: node
+bundle: lure
+label: ' Description'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - full_html
+field_type: text_long

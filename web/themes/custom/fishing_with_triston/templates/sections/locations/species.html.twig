@@ -6,7 +6,7 @@
 				<ul>
 					{% for item in node.field_fish_species %}
 						<li>
-						<a href="{{ path('entity.taxonomy_term.canonical', {'taxonomy_term': item.entity.id()}) }}" >{{ item.entity.name.value }}</a></li>
+						<a href="{{ path('entity.node.canonical', {'node': item.entity.id()}) }}" >{{ item.entity.title.value }}</a></li>
 					{% endfor %}
 				</ul>
 			</div>

@@ -1,0 +1,21 @@
+uuid: dd631523-76c2-47f0-8fa8-8db9b76ee227
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_ideal_season
+    - node.type.lure
+  module:
+    - options
+id: node.lure.field_ideal_season
+field_name: field_ideal_season
+entity_type: node
+bundle: lure
+label: 'Ideal Season'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

@@ -1,0 +1,30 @@
+uuid: 12f17f3e-6fe4-4737-82be-d75aa1bf94fa
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_wind_type
+field_name: field_wind_type
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: very_windy
+      label: 'Very Windy'
+    -
+      value: slightly_windy
+      label: 'Slightly Windy'
+    -
+      value: no_wind
+      label: 'No wind'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

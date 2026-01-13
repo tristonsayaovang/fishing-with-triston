@@ -14,10 +14,14 @@ bundle: location_lure_and_copy
 mode: default
 content:
   field_lure:
-    type: options_buttons
-    weight: 0
+    type: entity_reference_autocomplete
+    weight: 2
     region: content
-    settings: {  }
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
   field_lure_optional_copy:
     type: text_textarea

@@ -1,0 +1,79 @@
+uuid: 964e9f43-6df7-4f07-99c3-045954534623
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.lure.field_barometric_pressure
+    - field.field.node.lure.field_cloud_cover
+    - field.field.node.lure.field_description
+    - field.field.node.lure.field_ideal_season
+    - field.field.node.lure.field_ideal_temperature
+    - field.field.node.lure.field_lure_image
+    - field.field.node.lure.field_wind_type
+    - node.type.lure
+  module:
+    - options
+    - text
+    - user
+id: node.lure.default
+targetEntityType: node
+bundle: lure
+mode: default
+content:
+  field_barometric_pressure:
+    type: list_default
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    weight: 12
+    region: content
+  field_cloud_cover:
+    type: list_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 11
+    region: content
+  field_description:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_ideal_season:
+    type: list_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 8
+    region: content
+  field_ideal_temperature:
+    type: list_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 9
+    region: content
+  field_lure_image:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_wind_type:
+    type: list_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 10
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden: {  }

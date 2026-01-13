@@ -220,10 +220,14 @@ content:
       placeholder: ''
     third_party_settings: {  }
   field_fish_species:
-    type: options_buttons
-    weight: 9
+    type: entity_reference_autocomplete
+    weight: 35
     region: content
-    settings: {  }
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
   field_hero_copy:
     type: text_textarea

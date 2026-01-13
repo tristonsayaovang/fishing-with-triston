@@ -1,0 +1,29 @@
+uuid: 40a4370a-59be-4294-8065-87860bedcc34
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.latest_blogs
+  module:
+    - system
+    - views
+  theme:
+    - fishing_with_triston
+id: fishing_with_triston_views_block__latest_blogs_block_1
+theme: fishing_with_triston
+region: content
+weight: 0
+provider: null
+plugin: 'views_block:latest_blogs-block_1'
+settings:
+  id: 'views_block:latest_blogs-block_1'
+  label: ''
+  label_display: visible
+  provider: views
+  views_label: ''
+  items_per_page: null
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: '<front>'

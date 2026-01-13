@@ -19,7 +19,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 0
+    weight: 2
     region: content
   field_lure_optional_copy:
     type: text_default

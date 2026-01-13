@@ -1,16 +1,16 @@
-uuid: 2afb327d-6056-4432-9d84-059545dceb82
+uuid: 54709fe4-e813-4db3-8441-b031a3fe4273
 langcode: en
 status: true
 dependencies:
   module:
+    - node
     - paragraphs
-    - taxonomy
 id: paragraph.field_lure
 field_name: field_lure
 entity_type: paragraph
 type: entity_reference
 settings:
-  target_type: taxonomy_term
+  target_type: node
 module: core
 locked: false
 cardinality: 1

@@ -1,0 +1,21 @@
+uuid: f0df28b6-cdd8-4ce8-aea7-32041e0e9245
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_wind_type
+    - node.type.lure
+  module:
+    - options
+id: node.lure.field_wind_type
+field_name: field_wind_type
+entity_type: node
+bundle: lure
+label: 'Wind Type'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

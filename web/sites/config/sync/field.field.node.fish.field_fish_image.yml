@@ -1,26 +1,26 @@
-uuid: 69505a0e-747c-46bc-b800-dda234149241
+uuid: 0df29858-6246-4b5f-a3f5-8ae3e0a89292
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_fish_species
+    - field.storage.node.field_fish_image
+    - media.type.image
     - node.type.fish
-    - node.type.location
-id: node.location.field_fish_species
-field_name: field_fish_species
+id: node.fish.field_fish_image
+field_name: field_fish_image
 entity_type: node
-bundle: location
-label: 'Fish Species'
+bundle: fish
+label: 'Fish Image'
 description: ''
 required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
-  handler: 'default:node'
+  handler: 'default:media'
   handler_settings:
     target_bundles:
-      fish: fish
+      image: image
     sort:
       field: _none
       direction: ASC

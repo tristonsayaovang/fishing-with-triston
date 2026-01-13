@@ -1,40 +1,38 @@
-uuid: a5e18e09-c7be-4338-bb1a-e8b2c12240ac
+uuid: 5efd94cf-76fc-44e3-9100-0c8d3e786549
 langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.page.body
-    - field.field.node.page.field_home_hero
-    - node.type.page
+    - field.field.node.fish.field_description
+    - field.field.node.fish.field_fish_image
+    - node.type.fish
   module:
     - text
     - user
-_core:
-  default_config_hash: M_Y8L5tfmhx7DR143E05YyZSpvgil6VFvqcfBWykalg
-id: node.page.default
+id: node.fish.default
 targetEntityType: node
-bundle: page
+bundle: fish
 mode: default
 content:
-  body:
+  field_description:
     type: text_default
-    label: hidden
+    label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 100
+    weight: 101
     region: content
-  field_home_hero:
+  field_fish_image:
     type: entity_reference_entity_view
     label: above
     settings:
-      view_mode: media_library
+      view_mode: default
       link: false
     third_party_settings: {  }
-    weight: 102
+    weight: 101
     region: content
   links:
     settings: {  }
     third_party_settings: {  }
-    weight: 101
+    weight: 100
     region: content
 hidden: {  }

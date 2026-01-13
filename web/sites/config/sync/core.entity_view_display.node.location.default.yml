@@ -46,7 +46,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 105
+    weight: 114
     region: content
   field_hero_copy:
     type: text_default

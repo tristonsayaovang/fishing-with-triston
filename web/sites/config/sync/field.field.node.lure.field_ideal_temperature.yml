@@ -1,0 +1,21 @@
+uuid: 8356cd3b-0381-44d2-ac2c-477234500dfd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_ideal_temperature
+    - node.type.lure
+  module:
+    - options
+id: node.lure.field_ideal_temperature
+field_name: field_ideal_temperature
+entity_type: node
+bundle: lure
+label: 'Ideal Temperature'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

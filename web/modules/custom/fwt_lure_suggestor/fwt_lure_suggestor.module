@@ -1,0 +1,17 @@
+<?php
+
+function fwt_lure_suggestor_theme()
+{
+      $module_path = \Drupal::service('extension.list.module')->getPath('fwt_lure_suggestor');
+
+    return [
+        'fwt_lure_suggestor' => [
+            'variables' => [
+                'testMessage' => '',
+                'weather' => [],
+            ],
+            'template' => 'block--lure-suggestor-block',  // Name of the twig file without .html.twig
+            'path' => $module_path . '/templates',
+        ],
+    ];
+}

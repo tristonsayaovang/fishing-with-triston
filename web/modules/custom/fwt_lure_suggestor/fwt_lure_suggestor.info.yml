@@ -1,0 +1,6 @@
+name: Fishing with Triston Lure Suggestor
+description: 'This is a web application that suggests lures based on weather conditions retrived via API'
+core_version_requirement: ' ^10 || ^11'
+package: Custom
+type: module
+dependencies: []

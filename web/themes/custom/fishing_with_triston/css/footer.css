@@ -1,0 +1,43 @@
+:where(.site-footer) {
+    background: var(--color-theme-black);
+    padding-block: 40px;
+    color: var(--color-theme-white);
+
+    .logo {
+        background: var(--color-theme-white);
+        display: inline-block;
+        padding: 5px 10px;
+
+        img {
+            max-width: 150px;
+        }
+    }
+
+    .footer-top{
+        display: grid;
+        grid-template-columns: 200px auto;
+        align-items: center;
+    }
+
+    .footer-nav {
+        & > ul {
+            display: flex;
+            flex-flow: row;
+            list-style: none;
+            gap: 20px;
+
+            & > li a {
+                color: var(--color-theme-white);
+                text-decoration: none;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }   
+    }
+
+    .copyright {
+        text-align: center;
+    }
+}

@@ -6,6 +6,7 @@ global-styling:
       css/fonts.css: {}
       css/margins-and-padding.css: {}
       css/header.css: {}
+      css/footer.css: {}
       css/main.css: {}
       css/region.css: {}
       css/home-hero.css: {}

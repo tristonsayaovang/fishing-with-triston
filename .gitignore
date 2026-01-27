@@ -13,4 +13,5 @@ web/sites/*/files/*
 
 # Ignore multi-site test environment.
 web/sites/simpletest
+.env.local
 

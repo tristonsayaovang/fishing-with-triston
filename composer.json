@@ -20,6 +20,7 @@
         "drupal/core-project-message": "^11.2",
         "drupal/core-recipe-unpack": "^11.2",
         "drupal/core-recommended": "^11.2",
+        "drupal/dotenv": "^1.2",
         "drupal/field_group": "^4.0",
         "drupal/focal_point": "^2.1",
         "drupal/media_contextual_crop": "^2.1",
@@ -29,7 +30,10 @@
         "drupal/media_library_media_modify": "^2.0@beta",
         "drupal/paragraphs": "^1.19",
         "drupal/twig_tweak": "^3.4",
-        "drush/drush": "^13.6"
+        "drush/drush": "^13.6",
+        "symfony/dotenv": "^7.4",
+        "symfony/http-client": "^7.4",
+        "vlucas/phpdotenv": "^5.6"
     },
     "conflict": {
         "drupal/drupal": "*"

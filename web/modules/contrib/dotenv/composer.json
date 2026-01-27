@@ -1,0 +1,23 @@
+{
+    "name": "drupal/dotenv",
+    "type": "drupal-module",
+    "description": "Integrates the Symfony Dotenv component with Drupal",
+    "license": "MIT",
+    "require": {
+        "drupal/core": "^10 || ^11",
+        "symfony/dotenv": "^5.4 || ^6.0 || ^7.0",
+        "webflo/drupal-finder": "^1.2"
+    },
+    "config": {
+        "platform": {
+            "php": "8.1.0"
+        }
+    },
+    "extra": {
+        "drush": {
+            "services": {
+                "drush.services.yml": "^9 || ^10 || ^11"
+            }
+        }
+    }
+}

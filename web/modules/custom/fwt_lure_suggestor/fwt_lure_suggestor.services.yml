@@ -1,0 +1,11 @@
+services:
+  fwt_lure_suggestor.weather_retrieval_service:
+    class: Drupal\fwt_lure_suggestor\Service\WeatherRetrievalService
+    arguments:
+      - '@http_client'
+      - '@logger.channel.default'
+  # Algorithm service depends on the weather service
+  fwt_lure_suggestor.lure_suggestor_algorithm_service:
+    class: Drupal\fwt_lure_suggestor\Service\LureSuggestorAlgorithmService
+    arguments:
+      - '@fwt_lure_suggestor.weather_retrieval_service'

@@ -11,7 +11,7 @@ _core:
 id: fishing_with_triston_content
 theme: fishing_with_triston
 region: content
-weight: -1
+weight: -2
 provider: null
 plugin: system_main_block
 settings:

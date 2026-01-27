@@ -1,0 +1,25 @@
+uuid: d6b5c883-bda8-4791-b6ef-fa4b5c5f47d4
+langcode: en
+status: true
+dependencies:
+  module:
+    - fwt_lure_suggestor
+    - system
+  theme:
+    - fishing_with_triston
+id: fishing_with_triston_fishingwithtristonluresuggestor
+theme: fishing_with_triston
+region: content
+weight: 0
+provider: null
+plugin: lure_suggestor_block
+settings:
+  id: lure_suggestor_block
+  label: 'Fishing with Triston Lure Suggestor'
+  label_display: visible
+  provider: fwt_lure_suggestor
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: '<front>'

@@ -12,7 +12,7 @@ dependencies:
 id: fishing_with_triston_views_block__latest_blogs_block_1
 theme: fishing_with_triston
 region: content
-weight: 0
+weight: -1
 provider: null
 plugin: 'views_block:latest_blogs-block_1'
 settings:

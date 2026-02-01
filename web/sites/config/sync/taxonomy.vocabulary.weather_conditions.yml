@@ -1,0 +1,9 @@
+uuid: 7dbfc2e5-8835-4753-9192-b32064b90f3e
+langcode: en
+status: true
+dependencies: {  }
+name: 'Weather Conditions'
+vid: weather_conditions
+description: 'The ideal weather conditions for a specific lure'
+weight: 0
+new_revision: false

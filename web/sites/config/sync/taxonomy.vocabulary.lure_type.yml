@@ -1,9 +1,9 @@
-uuid: a5d6cb62-ebbb-4dfa-b7fd-5ae62d117e95
+uuid: ab833433-5186-4d2e-97b0-79c5ead29694
 langcode: en
 status: true
 dependencies: {  }
-name: Lures
-vid: lures
+name: 'Lure Type'
+vid: lure_type
 description: null
 weight: 0
 new_revision: false

@@ -1,6 +1,12 @@
 <section class="lure-suggestion-container">
     <div class="region">
-        {{ testMessage }}
-        {{ dump(weather) }}
+
+        <div class="recommended-lures">
+            {% for lure in lures %}
+                <div class="recommended-lure">
+                    <div><a href="{{ path('entity.node.canonical', {'node': lure.id }) }}" >{{ lure.title.value }}</a></div>
+                </div>
+            {% endfor %}
+        </div>
     </div>
 </section>

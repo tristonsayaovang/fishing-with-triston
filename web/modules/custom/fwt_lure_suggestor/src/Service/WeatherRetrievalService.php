@@ -6,7 +6,8 @@ namespace Drupal\fwt_lure_suggestor\Service;
 
 use GuzzleHttp\ClientInterface;
 use Psr\Log\LoggerInterface;
-
+use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Response;
 
 class WeatherRetrievalService
 {
@@ -18,7 +19,7 @@ class WeatherRetrievalService
     {
         $this->httpClient = $http_client;
         $this->logger = $logger;
-        $this->apiKey = $_ENV['WEATHER_API_KEY'];
+        $this->apiKey = $_ENV['WEATHER_API_KEY'] ;
     }
 
  
@@ -31,10 +32,10 @@ class WeatherRetrievalService
    * @return array|null
    *   Returns an array with weather data, or null on error.
    */
-  public function getCurrentWeather() {
+  public function getCurrentWeather(): ?array {
     $zip = 54601;
     $endpoint = 'https://api.weatherapi.com/v1/current.json';
-
+    
     try {
       $response = $this->httpClient->request('GET', $endpoint, [
         'query' => [

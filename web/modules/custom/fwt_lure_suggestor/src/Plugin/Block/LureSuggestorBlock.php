@@ -51,7 +51,7 @@ class LureSuggestorBlock extends BlockBase  implements ContainerFactoryPluginInt
     return [
       '#theme' => 'fwt_lure_suggestor',
       '#testMessage' => 'test',
-      '#weather' =>$this->lureSuggestion->getWeather(),
+      '#lures' =>$this->lureSuggestion->fetchLures(),
     ];
   }
 }

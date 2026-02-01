@@ -1,19 +1,19 @@
-uuid: fc55144f-f623-45d3-9e07-ac4d9685c6a1
+uuid: d3f6e570-5d6c-4c8b-b074-7375ff9d8dd9
 langcode: en
 status: true
 dependencies:
   module:
-    - media
+    - node
     - taxonomy
-id: taxonomy_term.field_fish_image
-field_name: field_fish_image
-entity_type: taxonomy_term
+id: node.field_ideal_conditions
+field_name: field_ideal_conditions
+entity_type: node
 type: entity_reference
 settings:
-  target_type: media
+  target_type: taxonomy_term
 module: core
 locked: false
-cardinality: 1
+cardinality: -1
 translatable: true
 indexes: {  }
 persist_with_no_fields: false

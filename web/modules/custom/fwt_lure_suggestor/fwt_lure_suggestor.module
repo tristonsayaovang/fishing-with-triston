@@ -8,7 +8,7 @@ function fwt_lure_suggestor_theme()
         'fwt_lure_suggestor' => [
             'variables' => [
                 'testMessage' => '',
-                'weather' => [],
+                'lures' => [],
             ],
             'template' => 'block--lure-suggestor-block',  // Name of the twig file without .html.twig
             'path' => $module_path . '/templates',

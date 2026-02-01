@@ -1,9 +1,0 @@
-uuid: 80e7e15e-2780-4795-9572-be759fd2cb50
-langcode: en
-status: true
-dependencies: {  }
-name: 'Fish Species'
-vid: fish_species
-description: 'Species of fish that you can find at the current location'
-weight: 0
-new_revision: false

@@ -3,13 +3,10 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.lure.field_barometric_pressure
-    - field.field.node.lure.field_cloud_cover
     - field.field.node.lure.field_description
-    - field.field.node.lure.field_ideal_season
-    - field.field.node.lure.field_ideal_temperature
+    - field.field.node.lure.field_ideal_conditions
     - field.field.node.lure.field_lure_image
-    - field.field.node.lure.field_wind_type
+    - field.field.node.lure.field_lure_type
     - node.type.lure
   module:
     - field_group
@@ -20,11 +17,7 @@ third_party_settings:
   field_group:
     group_weather_conditions:
       children:
-        - field_wind_type
-        - field_ideal_temperature
-        - field_cloud_cover
-        - field_barometric_pressure
-        - field_ideal_season
+        - field_ideal_conditions
       label: 'Weather Conditions'
       region: content
       parent_name: ''
@@ -60,6 +53,23 @@ third_party_settings:
         formatter: open
         description: ''
         required_fields: true
+    group_lure_type:
+      children:
+        - field_lure_type
+      label: 'Lure Type'
+      region: content
+      parent_name: ''
+      weight: 8
+      format_type: details_sidebar
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        open: false
+        description: ''
+        required_fields: true
+        weight: 0
 id: node.lure.default
 targetEntityType: node
 bundle: lure
@@ -71,18 +81,6 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_barometric_pressure:
-    type: options_buttons
-    weight: 13
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  field_cloud_cover:
-    type: options_buttons
-    weight: 12
-    region: content
-    settings: {  }
-    third_party_settings: {  }
   field_description:
     type: text_textarea
     weight: 2
@@ -91,15 +89,9 @@ content:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
-  field_ideal_season:
+  field_ideal_conditions:
     type: options_buttons
-    weight: 14
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  field_ideal_temperature:
-    type: options_buttons
-    weight: 11
+    weight: 26
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -110,9 +102,9 @@ content:
     settings:
       media_types: {  }
     third_party_settings: {  }
-  field_wind_type:
+  field_lure_type:
     type: options_buttons
-    weight: 10
+    weight: 9
     region: content
     settings: {  }
     third_party_settings: {  }

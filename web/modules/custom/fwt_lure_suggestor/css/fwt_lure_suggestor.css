@@ -1,0 +1,33 @@
+:where(.lure-suggestion-container) {
+
+    margin-block: 80px 0;
+
+    .lure-suggestion-wrapper {
+        background-color: var(--color-theme-light-gray);
+        padding: 40px;
+        border-radius: 10px 10px 0 0 ;
+    }
+
+    .recommended-lures {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 25px;
+    }
+
+    .recommended-lure {
+        display: flex;
+        flex-flow: column;
+        gap: 10px;
+        justify-content: center;
+        align-items: center;
+        font-weight: 600;
+        font-size: 24px;
+
+        & a {
+            text-decoration: none;
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}

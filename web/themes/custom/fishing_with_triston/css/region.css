@@ -1,6 +1,10 @@
 :where(.region) {
     max-width: var(--content-width-wide);
     margin-inline: auto;
+
+    &.narrow {
+        max-width: var(--content-width-small);
+    }
 }
 
 

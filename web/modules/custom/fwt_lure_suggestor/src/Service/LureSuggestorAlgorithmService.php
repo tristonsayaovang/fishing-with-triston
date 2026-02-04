@@ -180,7 +180,8 @@ class LureSuggestorAlgorithmService
 
         $nids = $query->execute();
 
-       return $nids ? Node::loadMultiple($nids) : ['cookies'];
+        return array_slice(Node::loadMultiple($nids), 0, 3);
+    //    return $nids ? Node::loadMultiple($nids) : ['cookies'];
     }
 
     private function getTermIdsByNames(string $vocabulary, array $names): array

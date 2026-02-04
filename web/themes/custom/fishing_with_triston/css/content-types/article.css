@@ -1,0 +1,8 @@
+:where(.article-container) {
+
+    background: var(--color-theme-yellow);
+    .article-wrapper {
+        background-color: var(--color-theme-white);
+        padding-inline: 40px;
+    }
+}

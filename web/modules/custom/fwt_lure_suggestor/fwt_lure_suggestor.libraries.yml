@@ -1,0 +1,4 @@
+fwt_lure_suggestor:
+  css:
+    theme:
+      css/fwt_lure_suggestor.css: {}

@@ -15,10 +15,10 @@
     padding-block: var(--padding-standard);
 }
 
-:where(.margin-block-short) {
+:where(.padding-block-short) {
     padding-block: var(--padding-short);
 }
 
-:where(.margin-block-tiny) {
+:where(.padding-block-tiny) {
     padding-block: var(--padding-tiny);
 }

@@ -2,7 +2,7 @@
 
 function fwt_lure_suggestor_theme()
 {
-      $module_path = \Drupal::service('extension.list.module')->getPath('fwt_lure_suggestor');
+    $module_path = \Drupal::service('extension.list.module')->getPath('fwt_lure_suggestor');
 
     return [
         'fwt_lure_suggestor' => [

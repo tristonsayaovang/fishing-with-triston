@@ -16,6 +16,7 @@ global-styling:
       css/location/recommended-lures.css: {}
       css/location/species.css: {}
       css/block/latest-blogs.css: {}
+      css/content-types/article.css: {}
   js:
     js/script.js: {}
     js/image-carousel.js: {}

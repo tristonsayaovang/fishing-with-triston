@@ -1,12 +1,19 @@
 <section class="lure-suggestion-container">
-    <div class="region">
+	<div class="lure-suggestion-wrapper padding-block-standard region">
 
-        <div class="recommended-lures">
-            {% for lure in lures %}
-                <div class="recommended-lure">
-                    <div><a href="{{ path('entity.node.canonical', {'node': lure.id }) }}" >{{ lure.title.value }}</a></div>
-                </div>
-            {% endfor %}
+		<h2 class="margin-block-short">Today's Recommended Lures</h3>
+        <div>
+            <p>Not sure what to use today? Based on today's weather conditions, try these!</p>
         </div>
-    </div>
+		<div class="recommended-lures margin-block-short">
+			{% for lure in lures %}
+				<div class="recommended-lure">
+					{{ renderMediaImage(lure.entity.field_lure.entity.field_lure_image, 'location_lure') }}
+					<a class="lure-name" href="{{ path('entity.node.canonical', {'node': lure.id()}) }}">
+						{{ lure.title.value }}
+					</a>
+				</div>
+			{% endfor %}
+		</div>
+	</div>
 </section>

@@ -1,4 +1,4 @@
-uuid: d465baae-8718-4e19-8e4b-335c3eecdef8
+uuid: c75fe937-73f2-4657-b45d-3cad8c96fcf1
 langcode: en
 status: true
 dependencies:
@@ -9,8 +9,8 @@ dependencies:
     - node
     - text
     - user
-id: latest_blogs
-label: 'Latest Blogs'
+id: blogs
+label: Blogs
 module: views
 description: ''
 tag: ''
@@ -23,6 +23,7 @@ display:
     display_plugin: default
     position: 0
     display_options:
+      title: Blogs
       fields:
         title:
           id: title
@@ -98,7 +99,7 @@ display:
             suffix: ''
             target: ''
             nl2br: false
-            max_length: 200
+            max_length: 450
             word_boundary: true
             ellipsis: true
             more_link: false
@@ -135,10 +136,24 @@ display:
           separator: ', '
           field_api_classes: false
       pager:
-        type: some
+        type: mini
         options:
           offset: 0
-          items_per_page: 12
+          pagination_heading_level: h4
+          items_per_page: 10
+          total_pages: null
+          id: 0
+          tags:
+            next: ››
+            previous: ‹‹
+          expose:
+            items_per_page: false
+            items_per_page_label: 'Items per page'
+            items_per_page_options: '5, 10, 25, 50'
+            items_per_page_options_all: false
+            items_per_page_options_all_label: '- All -'
+            offset: false
+            offset_label: Offset
       exposed_form:
         type: basic
         options:
@@ -198,11 +213,6 @@ display:
             article: article
       style:
         type: default
-        options:
-          grouping: {  }
-          row_class: ''
-          default_row_class: true
-          uses_fields: false
       row:
         type: fields
         options:
@@ -227,22 +237,7 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
-        - 'user.node_grants:view'
-        - user.permissions
-      tags:
-        - 'config:field.storage.node.body'
-  block_1:
-    id: block_1
-    display_title: Block
-    display_plugin: block
-    position: 1
-    display_options:
-      display_extenders: {  }
-    cache_metadata:
-      max-age: -1
-      contexts:
-        - 'languages:language_content'
-        - 'languages:language_interface'
+        - url.query_args
         - 'user.node_grants:view'
         - user.permissions
       tags:
@@ -251,15 +246,16 @@ display:
     id: page_1
     display_title: Page
     display_plugin: page
-    position: 2
+    position: 1
     display_options:
       display_extenders: {  }
-      path: latest-blogs
+      path: blogs
     cache_metadata:
       max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - url.query_args
         - 'user.node_grants:view'
         - user.permissions
       tags:

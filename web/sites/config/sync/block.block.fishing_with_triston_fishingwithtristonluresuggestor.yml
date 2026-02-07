@@ -16,7 +16,7 @@ plugin: lure_suggestor_block
 settings:
   id: lure_suggestor_block
   label: 'Fishing with Triston Lure Suggestor'
-  label_display: visible
+  label_display: '0'
   provider: fwt_lure_suggestor
 visibility:
   request_path:

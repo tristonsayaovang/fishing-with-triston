@@ -1,0 +1,12 @@
+<div class="blogs-container">
+	<div class="region">
+		<h2 class="margin-block-short" >Triston's fishing blogs</h2>
+		<div class="blogs-wrapper margin-block-standard">
+			{% for row in rows %}
+				<div class="single-blog">
+					{{ row.content }}
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+</div>

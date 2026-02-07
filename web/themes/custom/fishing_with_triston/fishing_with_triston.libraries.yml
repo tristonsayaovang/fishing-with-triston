@@ -11,6 +11,8 @@ global-styling:
       css/region.css: {}
       css/home-hero.css: {}
       css/hero.css: {}
+      css/mobile-nav.css: {}
+      css/blogs-archive.css: {}
       css/location/location.css: {}
       css/location/image-carousel.css: {}
       css/location/recommended-lures.css: {}

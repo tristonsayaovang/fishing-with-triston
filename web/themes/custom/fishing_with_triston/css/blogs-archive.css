@@ -1,0 +1,43 @@
+:where(.blogs-container) {
+
+    .blogs-wrapper {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 40px;
+    }
+
+    .views-field-title {
+        margin-bottom: 20px;
+
+
+        .field-content>a {
+            font-size: 24px;
+        }
+    }
+
+    .single-blog .field-content {
+        & * {
+            font-size: 16px;
+        }
+    }
+}
+
+@media screen and (max-width: 900px) {
+    :where(.blogs-container) {
+        .blogs-wrapper {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+    }
+
+}
+
+@media screen and (max-width: 600px) {
+    :where(.blogs-container) {
+        .blogs-wrapper {
+            grid-template-columns: 1fr;
+        }
+
+    }
+
+}

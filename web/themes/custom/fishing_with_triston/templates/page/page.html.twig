@@ -45,11 +45,12 @@
  * @see html.html.twig
  */
 #}
-
+{# 
   <a href="{{ path('entity.node.edit_form', {'node': node.id}) }}" class="node-edit-button">
       {{ 'Edit'|t }}
-    </a>
-    
+    </a> #}
+    {{ title_prefix }}
+{{ title_suffix }}
 <div id="page-wrapper" class="page-wrapper">
   <div id="page">
 
@@ -66,6 +67,17 @@
             {{ page.highlighted }}
             {{ page.breadcrumb }}
 
+{% if page.primary_local_tasks %}
+  <nav class="tabs">
+    {{ page.primary_local_tasks }}
+  </nav>
+{% endif %}
+
+{% if page.secondary_local_tasks %}
+  <nav class="tabs tabs--secondary">
+    {{ page.secondary_local_tasks }}
+  </nav>
+{% endif %}
             {% if page.sidebar %}
               <div class="sidebar-grid grid-full">
                 <main role="main" class="site-main">

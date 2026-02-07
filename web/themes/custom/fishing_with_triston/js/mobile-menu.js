@@ -17,9 +17,10 @@
             const primaryNav = header.querySelector('#block-fishing-with-triston-main-menu');
             const mobileMenuButton = header.querySelector('[data-role~=mobileMenuButton]');
             const dialog = header.querySelector('[data-role~=mobileNavDialog]');
+            const closeModal = header.querySelector('[data-role~=closeModal]');
 
 
-            primaryNav.querySelectorAll('li').forEach((link) => {
+            primaryNav.querySelectorAll('ul:not(.contextual-links) li').forEach((link) => {
                 const clonedLink = link.cloneNode(true);
                 clonedLink.classList.add('mobile-navigation-link');
                 mobileNavList.appendChild(clonedLink);
@@ -30,6 +31,10 @@
                 dialog.showModal();
             });
 
+
+            closeModal.addEventListener('click', () => {
+                dialog.close();
+            });
         },
 
         init = () => {

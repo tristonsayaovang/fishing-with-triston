@@ -41,3 +41,13 @@
         text-align: center;
     }
 }
+
+@media screen and (max-width: 650px) {
+    :where(.site-footer) {
+        .footer-top {
+
+            display: flex;
+            flex-flow: column wrap;
+        }
+    }
+}

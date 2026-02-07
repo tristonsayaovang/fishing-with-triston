@@ -1,15 +1,31 @@
 :where(.latest-blogs-block) {
     padding-block: 40px;
 
-    .latest-blogs-wrapper{
+    .latest-blogs-wrapper {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
         gap: 25px;
         margin-block: 20px;
     }
 
+    .single-blog {
+        & * {
+            font-size: 14px;
+        }
+    }
+
     .article-title {
         font-size: 24px;
+        margin-bottom: 16px;
+        display: block;
 
-    } 
+    }
+}
+
+@media screen and (max-width: 650px) {
+    :where(.latest-blogs-block) {
+        .latest-blogs-wrapper {
+            grid-template-columns: 1fr;
+        }
+    }
 }

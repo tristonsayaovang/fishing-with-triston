@@ -1,6 +1,9 @@
 :where(.article-container) {
 
     background: var(--color-theme-yellow);
+    background-image: url("../../images/texture.webp");
+    background-blend-mode: multiply;
+
     .article-wrapper {
         background-color: var(--color-theme-white);
         padding-inline: 40px;

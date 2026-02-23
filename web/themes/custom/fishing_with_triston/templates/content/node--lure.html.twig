@@ -1,0 +1,20 @@
+<article class="lure-page-container">
+	<div class="region">
+
+		<div class="lure-wrapper">
+			<div class="lure-image">
+				{{content.field_lure_image}}
+				<div class="lure-label">{{node.label}}</div>
+				<div class="lure-type">
+					{% for type in node.field_lure_type %}
+						<a arial-label="View lure type" href="{{ path('entity.taxonomy_term.canonical', {'taxonomy_term': type.entity.id()}) }}">{{ type.entity.label }}</a>
+					{% endfor %}
+				</div>
+			</div>
+			<div class="lure-page-content">
+				{{content.field_description}}
+			</div>
+		</div>
+	</div>
+
+</article>

@@ -19,6 +19,7 @@ global-styling:
       css/location/species.css: {}
       css/block/latest-blogs.css: {}
       css/content-types/article.css: {}
+      css/content-types/lure.css: {}
   js:
     js/script.js: {}
     js/image-carousel.js: {}
